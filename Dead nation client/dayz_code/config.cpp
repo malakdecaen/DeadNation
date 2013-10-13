@@ -266,14 +266,35 @@ class CfgSurvival {
 			yield = 1;
 			rawfoodtype = "FoodrabbitRaw";
 		};
-        class zZombie_base: Default {
-            yield = 1;
-            rawfoodtype = "FoodzombieRaw";
-        };
-        class player_base: Default {
-            yield = 1;
-            rawfoodtype = "FoodhumanRaw";
-        };
+       		class zZombie_base: Default {
+         		yield = 1;
+        		 rawfoodtype = "FoodzombieRaw";
+      		};
+      		class player_base: Default {
+        		yield = 1;
+         	rawfoodtype = "FoodhumanRaw";
+      		};
+      		//A3Fix
+      		class Hen_random_F: Default {
+         	yield = 2;
+         	rawfoodtype = "FoodchickenRaw";
+      		};
+      		class Fin_random_F: Default {
+         	yield = 3;
+         	rawfoodtype = "FoodmeatRaw";
+      		};
+      		class Sheep_random_F: Default {
+         	yield = 4;
+         	rawfoodtype = "FoodmuttonRaw";
+      		};
+      		class Snake_random_F: Default {
+         	yield = 1;
+         	rawfoodtype = "FoodmeatRaw";
+      		};
+      		class Rabbit_F: Default {
+         	yield = 2;
+         	rawfoodtype = "FoodrabbitRaw";
+      		};
 	};
 };
 
