@@ -18,9 +18,6 @@ Malakdecaen (Mod creator)
 
 HoH4XoR (Launcher DEV)
 
-
-M0f0 (Moderator)
-
 Qrizz (Moderator)
 
 
@@ -29,7 +26,7 @@ Community Contributors:
 
 
 =TTK= Yourry  (Inventory fix)
-
+Djoe45 (script fix)
 
 
 Project sponsored by http://dlaming.fi
