@@ -29,12 +29,12 @@ if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
         player setVariable ["humanity",_humanity, true];
         _dis=20;
         _sfx = "gut";
-        [player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+        [player,_sfx,0,true,_dis] call dayz_zombieSpeak;  
         [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
     } else {
 	_dis=10;
 	_sfx = "gut";
-	[player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+	[player,_sfx,0,true,_dis] call dayz_zombieSpeak;  
 	[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
     };
 

@@ -33,7 +33,7 @@ while {_isAlive and _isSomeone} do {
 //CHASE TARGET
 	
 	//Leader cries out
-	[_agent,"attack",0,false] call dayz_zombieSpeak;
+	[_agent,"attack",10,true] call dayz_zombieSpeak;
 	
 	//Start Movement loop
 	while {!isNull _target and _isAlive and _isSomeone} do {

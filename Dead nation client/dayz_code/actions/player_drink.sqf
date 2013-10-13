@@ -30,14 +30,14 @@ sleep 1;
 if (["ItemWaterbottle",_itemorignal] call fnc_inString) then {
     //low alert and sound radius
     _dis=5;
-    [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
+    [player,_sfx,10,true,_dis] call dayz_zombieSpeak;
     [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
     player addMagazine "ItemWaterbottleUnfilled";
 };
 if (["ItemSoda",_itemorignal] call fnc_inString) then {
     //higher alert and sound radius
     _dis=10;
-    [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
+    [player,_sfx,10,true,_dis] call dayz_zombieSpeak;
     _id = [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 };  
 

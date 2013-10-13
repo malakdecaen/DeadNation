@@ -30,7 +30,7 @@ if (_hasrequireditem or _bypass) then {
 	
 	_dis=20;
 	_sfx = "repair";
-	[player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+	[player,_sfx,10,true,_dis] call dayz_zombieSpeak;  
 	[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 	
 	sleep 5;

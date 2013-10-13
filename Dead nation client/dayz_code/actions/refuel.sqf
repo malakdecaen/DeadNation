@@ -17,7 +17,7 @@ player addMagazine "ItemJerrycanEmpty";
 player playActionNow "Medic";
 _dis=10;
 _sfx = "refuel";
-[player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+[player,_sfx,10,true,_dis] call dayz_zombieSpeak;  
 [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 
 sleep 6;

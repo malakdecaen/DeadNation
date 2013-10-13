@@ -40,7 +40,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.deadnation.eu";
-		version = "1.5.9";
+		version = "1.6.0";
 		hiveVersion = 0.96; //0.93
 	};
 	class DZ_InitWorld

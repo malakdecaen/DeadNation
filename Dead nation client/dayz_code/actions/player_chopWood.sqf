@@ -3,7 +3,7 @@ closeDialog 0;
 if (["forest",dayz_surfaceType] call fnc_inString) then {
 
 		_result = [player,"PartWoodPile"] call BIS_fnc_invAdd;
-		[player,"chopwood",0,false] call dayz_zombieSpeak;
+		[player,"chopwood",10,true] call dayz_zombieSpeak;
 		if (_result) then {
         
             player playActionNow "Medic";

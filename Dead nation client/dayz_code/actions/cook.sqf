@@ -17,7 +17,7 @@ _cookedmeat = meatcooked;
 		
 		_dis=6;
 		_sfx = "cook";
-		[player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+		[player,_sfx,10,true,_dis] call dayz_zombieSpeak;  
 		[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 		
 		sleep _qty;

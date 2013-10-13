@@ -1,7 +1,7 @@
 private["_position","_tent","_location","_isOk","_backpack","_tentType","_trg","_key"];
 
 _playerPos = 	getPosATL player;
-_item = "ItemATent" in magazines player;
+_item = "ItemTent" in magazines player;
 _location = player modeltoworld [0,3,0];
 _location set [2,0];
 _building = nearestObject [(vehicle player), "HouseBase"];
@@ -28,10 +28,10 @@ _objectsPond = 		nearestObjects [_playerPos, [], 10];
 	
 	_dis=20;
 	_sfx = "tentunpack";
-	[player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+	[player,_sfx,0,true,_dis] call dayz_zombieSpeak;  
 	[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 	sleep 5;
-	_tent = createVehicle ["ACampStorage", _location, [], 0, "CAN_COLLIDE"];
+	_tent = createVehicle ["garage_repart", _location, [], 0, "CAN_COLLIDE"];
 	_tent setdir _dir;
 	_tent setpos _location;
 	player reveal _tent;
@@ -39,7 +39,7 @@ _objectsPond = 		nearestObjects [_playerPos, [], 10];
 
 	_tent setVariable ["characterID",dayz_characterID,true];
 
-	dayzPublishObj = [dayz_characterID,_tent,[_dir,_location],"ACampStorage"];
+	dayzPublishObj = [dayz_characterID,_tent,[_dir,_location],"garage_repart"];
 	publicVariable "dayzPublishObj";
 	
 	cutText [localize "str_success_tent_pitch", "PLAIN DOWN"];

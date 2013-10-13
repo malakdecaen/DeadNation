@@ -25,15 +25,15 @@ while {true} do {
     _mylastPos =    getPosATL player;
 	_speed = 	round((_vel distance [0,0,0]) * 3.5);
     _typeOf =    typeOf player;
-	_saveTime = 5;
+	_saveTime = 300;
     if ((playersNumber west > 10) and (playersNumber west <= 20)) then {
-    _saveTime = 10;
+    _saveTime = 300;
     };
     if ((playersNumber west > 20) and (playersNumber west <= 30)) then {
-    _saveTime = 15;
+    _saveTime = 300;
     };
     if (playersNumber west > 30) then {
-    _saveTime = 20;
+    _saveTime = 300;
     };
 		
 	//reset position
@@ -157,7 +157,7 @@ while {true} do {
 		};
 		
 		_rnd = ceil (random 8);
-		[player,"cough",_rnd,false,9] call dayz_zombieSpeak;
+		[player,"cough",_rnd,true,9] call dayz_zombieSpeak;
 		
 		if (_rnd < 3) then {
 			addCamShake [2, 1, 25];

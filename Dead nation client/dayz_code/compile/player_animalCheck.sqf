@@ -11,7 +11,7 @@ if (count _list < dayz_maxAnimals) then {
 		_type =  (_animalssupported select floor(random(count _animalssupported)));
 	};
 	_root = configFile >> "CfgVehicles" >> _type;
-	_favouritezones = getText ( _root >> "favouritezones");
+	_favouritezones = "(1 + meadow) * (1 - forest) * (1 - trees)";
 	//_randrefpoint = [position player, 10, dayz_animalDistance, 1, 0, 50, 0] call BIS_fnc_findSafePos;
 	_randrefpoint = getposATL player;
 	_PosList = 		selectbestplaces [_randrefpoint,dayz_animalDistance,_favouritezones,10,5];

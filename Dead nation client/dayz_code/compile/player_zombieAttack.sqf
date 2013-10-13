@@ -14,6 +14,7 @@ if (r_player_unconscious && _vehicle == player && _type == "zombie") then {
 	if (_type == "zombie") then {
 		_rnd = round(random 9) + 1;
 		_move = "ZombieStandingAttack" + str(_rnd);
+		[_unit,"attack",10,true] call dayz_zombieSpeak;
 	} else {
 		_move = "Dog_Attack";
 	};
@@ -42,7 +43,7 @@ if (_vehicle != player) then {
 	};
 
 	if ((_wound == "Glass1") or (_wound == "Glass2") or (_wound == "Glass3") or (_wound == "Glass4") or (_wound == "Glass5") or (_wound == "Glass6")) then {
-		[_unit,"hit",4,false] call dayz_zombieSpeak;
+		[_unit,"hit",10,true] call dayz_zombieSpeak;
 		_strH = "hit_" + (_wound);
 		_dam = _vehicle getVariable [_strH,0];
 		_total = (_dam + _damage);
@@ -67,11 +68,12 @@ if (_vehicle != player) then {
 			[player, _wound, _damage, _unit,"zombie"] call fnc_usec_damageHandler;
 			//dayzHit =	[player,_wound, _damage, _unit,"zombie"];
 			//publicVariable "dayzHit";
-			[_unit,"hit",2,false] call dayz_zombieSpeak;	
+			[_unit,"hit",10,true] call dayz_zombieSpeak;	
 		} else {
 			//["dayzHitV",[_vehicle, _wound, _total, _unit,"zombie"]] call broadcastRpcCallAll;
 			dayzHitV =	[_vehicle, _wound, _total, _unit,"zombie"];
 			publicVariable "dayzHitV";
+			[_unit,"hit",10,true] call dayz_zombieSpeak;
 		};
 	};
 } else {
@@ -102,12 +104,12 @@ if (_vehicle != player) then {
 					_wound = (DAYZ_woundHit_ok select 0) select _index; 
 				};
 				_damage = 0.8 + random (1.2);
-					
+				[_unit,"hit",10,true] call dayz_zombieSpeak;
 				//diag_log ("START DAM: Player Hit on " + _wound + " for " + str(_damage));
 				[player, _wound, _damage, _unit,"zombie"] call fnc_usec_damageHandler;
 				//dayzHit =	[player,_wound, _damage, _unit,"zombie"];
 				//publicVariable "dayzHit";
-				[_unit,"hit",2,false] call dayz_zombieSpeak;
+				[_unit,"hit",10,true] call dayz_zombieSpeak;
 			} else {
 				/*
 				_isZombieInside = [_unit,_building] call fnc_isInsideBuilding;
@@ -117,7 +119,7 @@ if (_vehicle != player) then {
 					[player, _wound, _damage, _unit,"zombie"] call fnc_usec_damageHandler;
 					//dayzHit =	[player,_wound, _damage, _unit,"zombie"];
 					//publicVariable "dayzHit";
-					[_unit,"hit",2,false] call dayz_zombieSpeak;	
+					[_unit,"hit",10,true] call dayz_zombieSpeak;	
 				};
 				*/
 			};

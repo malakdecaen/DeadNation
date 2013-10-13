@@ -41,7 +41,7 @@ sleep 0.5;
 
 _dis=6;
 _sfx = "eat";
-[player,_sfx,0,false,_dis] call dayz_zombieSpeak;
+[player,_sfx,10,true,_dis] call dayz_zombieSpeak;
 [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 
 

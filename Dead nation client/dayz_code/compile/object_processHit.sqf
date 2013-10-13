@@ -33,6 +33,6 @@ if (local _unit) then {
 		};
 	};
 	if (_break) then {
-		[player,"fracture",0,false] call dayz_zombieSpeak;
+		[player,"fracture",10,true] call dayz_zombieSpeak;
 	};
 };

@@ -13,16 +13,16 @@ if (_characterID == "0") exitWith {
 };
 
 //CheckVehicle
-_character allowDamage true;
-if (_isInVehicle) then {
-	_vehicle = (vehicle _character);
-	_isSync = _vehicle getVariable ["ObjectID",0] > 0;
-	if (!_isSync) then {
-		_vehicle allowDamage true;
-		_vehicle setDamage 1;
-		_character setVelocity [0,0,100];
-	};
-};
+//_character allowDamage true;
+//if (_isInVehicle) then {
+	//_vehicle = (vehicle _character);
+	//_isSync = _vehicle getVariable ["ObjectID",0] > 0;
+	//if (!_isSync) then {
+		//_vehicle allowDamage true;
+		//_vehicle setDamage 1;
+		//_character setVelocity [0,0,100];
+	//};
+//};
 
 //Check for server initiated updates
 _isNewMed =		_character getVariable["medForceUpdate",false];		//Med Update is forced when a player receives some kind of med incident

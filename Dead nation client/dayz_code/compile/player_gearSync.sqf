@@ -1,6 +1,6 @@
 private ["_objects"];
 
-_objects = nearestObjects [getPosATL player, ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "ACampStorage"], 10];
+_objects = nearestObjects [getPosATL player, ["Car", "Helicopter", "Motorcycle", "Ship", "C_Offroad_01_F", "TentStorage", "garage_repart"], 10];
 {
 	//["dayzUpdateVehicle",[_x,"gear"]] call callRpcProcedure;
 	dayzUpdateVehicle = [_x,"gear"];

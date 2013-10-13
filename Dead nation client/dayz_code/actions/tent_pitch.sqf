@@ -42,7 +42,7 @@ _objectsPond = 		nearestObjects [_playerPos, [], 10];
 	
 	_dis=20;
 	_sfx = "tentunpack";
-	[player,_sfx,0,false,_dis] call dayz_zombieSpeak;  
+	[player,_sfx,10,true,_dis] call dayz_zombieSpeak;  
 	[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 	sleep 5;
 	//place tent (local)

@@ -14,7 +14,7 @@ private ["_minWeatherChangeTimeMin", "_maxWeatherChangeTimeMin", "_minTimeBetwee
 private ["_minimumFog", "_maximumFog", "_minimumOvercast", "_maximumOvercast", "_minimumRain", "_maximumRain", "_minimumWind", "_maximumWind", "_minRainIntervalTimeMin", "_maxRainIntervalTimeMin", "_forceRainToStopAfterOneRainInterval", "_maxWind"];
 
 if (isNil "_this") then { _this = []; };
-if (count _this > 0) then { _initialFog = _this select 0; } else { _initialFog = 0; };
+if (count _this > 0) then { _initialFog = _this select 0; } else { _initialFog = -1; };
 if (count _this > 1) then { _initialOvercast = _this select 1; } else { _initialOvercast = -1; };
 if (count _this > 2) then { _initialRain = _this select 2; } else { _initialRain = -1; };
 if (count _this > 3) then { _initialWind = _this select 3; } else { _initialWind = [-1, -1]; };
@@ -45,7 +45,7 @@ _minimumFog = 0;
 
 // Fog intensity never exceeds this value. Must be between 0 and 1 and greater than or equal to _minimumFog
 // (0 = no fog, 1 = pea soup). (Suggested value: 0.8).
-_maximumFog = 0.5;
+_maximumFog = 0.8;
 
 // Overcast intensity never falls below this value. Must be between 0 and 1 and less than or equal to _maximumOvercast
 // (0 = no overcast, 1 = maximum overcast). (Suggested value: 0).

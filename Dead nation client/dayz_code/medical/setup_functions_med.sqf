@@ -35,8 +35,8 @@ fnc_usec_damageUnconscious = {
 	_inVehicle = (vehicle _unit != _unit);
 	if (_unit == player) then {
 		r_player_timeout = round(((random 2) * _damage) * 40);
-		//if (_type == 1) then {r_player_timeout = r_player_timeout + 90};
-		//if (_type == 2) then {r_player_timeout = r_player_timeout + 60};
+		if (_type == 1) then {r_player_timeout = r_player_timeout + 90};
+		if (_type == 2) then {r_player_timeout = r_player_timeout + 60};
 		r_player_unconscious = true;
 		player setVariable["medForceUpdate",true,true];
 		player setVariable ["unconsciousTime", r_player_timeout, true];
@@ -67,14 +67,11 @@ fnc_usec_bulletHit = {
 	private["_commit"];
 	_commit = _this;
 	if (!r_player_unconscious) then {
-    if ((!r_player_tearGasOn) and (player distance (nearestObject [player,"SmokeShellTear"]) > 35) and (!r_player_tranq)) then {
 		"colorCorrections" ppEffectEnable true;"colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 0.1],  [1, 1, 1, 0.0]];"colorCorrections" ppEffectCommit 0;
 		"dynamicBlur" ppEffectEnable true;"dynamicBlur" ppEffectAdjust [2]; "dynamicBlur" ppEffectCommit 0;
 		addCamShake [5, 0.5, 25];
 		"colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 0.0]];"colorCorrections" ppEffectCommit _commit;
 		"dynamicBlur" ppEffectAdjust [0]; "dynamicBlur" ppEffectCommit _commit;
-        };
-        r_player_clear = true;
 	};
 };
 
@@ -89,9 +86,6 @@ fnc_usec_damageType = {
 	if ((_ammo isKindof "B_127x107_Ball") or (_ammo isKindof "B_127x99_Ball")) then {
 		_type = 2;
 	};
-    if (_ammo isKindOf "B_9x18_Tranq") then {
-        _type = 3;
-    };
 	_type;
 };
 
@@ -194,7 +188,7 @@ fnc_usec_damageBleed = {
 			_point = "Logic" createVehicleLocal getPosATL _unit;
 			_source = "#particlesource" createVehicleLocal getPosATL _unit;
 			_source setParticleParams
-			/*Sprite*/		[["\Ca\Data\ParticleEffects\Universal\Universal", 16, 13, 1],"",// File,Ntieth,Index,Count,Loop(Bool)
+			/*Sprite*/		[["\A3\data_f\ParticleEffects\Universal\Universal", 16, 13, 1],"",// File,Ntieth,Index,Count,Loop(Bool)
 			/*Type*/			"Billboard",
 			/*TimmerPer*/		1,
 			/*Lifetime*/		0.2,

@@ -819,7 +819,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"//Reveal action types" \n
        "" \n
        "diag_log ""[SYSTEM] Stage 4 (Preload) Start..."";" \n
-       "{player reveal _x} forEach (nearestObjects [getPosATL player, [""AllVehicles"",""groundweaponHolder"",""TentStorage"",""ACampStorage"",""BuiltItems""], 50]);" \n
+       "{player reveal _x} forEach (nearestObjects [getPosATL player, [""AllVehicles"",""groundweaponHolder"",""TentStorage"",""garage_repart"",""BuiltItems""], 50]);" \n
        "" \n
        "dayz_clientPreload = true;" \n
        "3 fadeSound 1;" \n

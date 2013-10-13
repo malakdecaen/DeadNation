@@ -83,7 +83,7 @@ if (!isNull _nearLightR) then {
 _hasKnife = 	"ItemKnife" in magazines player;
 _hasToolbox = 	"ItemToolbox" in magazines player;
 _hasTent = 		"ItemTent" in magazines player;
-_hasATent = 	"ItemATent" in magazines player;
+_hasATent = 	"ItemTent" in magazines player;
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 
     
@@ -351,7 +351,7 @@ if (_canPickLightR and !dayz_hasLight) then {
 	//Allow placing of tents
 	if(_vehicle == player and _hasATent) then {
 		if(s_doATent < 0) then {
-			s_doATent = player addAction [format["Pitch Tent (Large)%1"], "z\addons\dayz_code\actions\atent_pitch.sqf"];
+			s_doATent = player addAction [format["Pitch shack%1"], "z\addons\dayz_code\actions\atent_pitch.sqf"];
 		};
 	} else	{
 		player removeAction s_doATent;

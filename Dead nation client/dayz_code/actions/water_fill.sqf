@@ -13,7 +13,7 @@ if ("ItemWaterbottleUnfilled" in magazines player) then {
 		player removeMagazine "ItemWaterbottleUnfilled";
 		player addMagazine "ItemWaterbottle";
 	};
-	[player,"fillwater",0,false] call dayz_zombieSpeak;
+	[player,"fillwater",10,true] call dayz_zombieSpeak;
 	_id = [player,10,true,(getPosATL player)] spawn player_alertZombies;
 	cutText [format[(localize  "str_player_01"),_qty], "PLAIN DOWN"];
 } else {
