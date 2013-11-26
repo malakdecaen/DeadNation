@@ -2,6 +2,8 @@ private["_unit","_type","_chance","_rnd","_sound","_local","_dis"];
 _unit = _this select 0;
 _type = _this select 1;
 _chance = _this select 2;
+_local = true;
+_dis = 10;
 
 _num = switch (_type) do {
 	default 			{0};
@@ -23,7 +25,7 @@ _num = switch (_type) do {
 
 if (count _this > 4) then {
 	_dis = _this select 4;
-	_local = ({isPlayer _x} count (_unit nearEntities ["AllVehicles",_dis]) < 2);
+	_local = ({isPlayer _x} count (_unit nearEntities ["AllVehicles",_dis]) < 4);
 } else {
 	_local = _this select 3;
 	

@@ -39,7 +39,7 @@ private["_display","_btnRespawn","_btnAbort","_timeOut","_timeMax","_isDead"];
                         };
                         case (player getVariable["combattimeout", 0] >= time) : {
                             _btnAbort ctrlEnable false;
-                            2 cutText [format[localize "str_abort_playerincombat",_text], "PLAIN DOWN"];	
+                            2 cutText [format[localize "str_abort_playerincombat"], "PLAIN DOWN"];	
                         };
                         default {
                             _btnAbort ctrlEnable true;

@@ -36,7 +36,7 @@ if ( _consume_type == 16) then {
     _slotend = 129;
 };
 
-_dialog = findDisplay 106;
+_dialog = findDisplay 602;
 
 _qty_total_ammo = 0;
 _qty_consume_ammo = 0;

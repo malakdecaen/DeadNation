@@ -12,6 +12,7 @@ _bag = unitBackpack player;
 _classbag = typeOf _bag;
 _isWater = 		(surfaceIsWater (position player)) or dayz_isSwimming;
 _hasAntiB = 	"ItemAntibiotic" in magazines player;
+_hasRadio = 	"ItemRadio" in items player;
 _hasFuelE = 	"ItemJerrycanEmpty" in magazines player;
 //boiled Water
 _hasbottleitem = "ItemWaterbottle" in magazines player;
@@ -26,7 +27,6 @@ _hastinitem = false;
 
 } forEach boil_tin_cans;
 
-//A3 Med Definitions and other vars by Papzzz, Pwnoz0r and MistaD
 
 _unit = 			player;
 _injured = 			player getVariable ["USEC_injured", false];
@@ -86,8 +86,12 @@ _hasToolbox = 	"ItemToolbox" in magazines player;
 _hasTent = 		"ItemTent" in magazines player;
 _hasATent = 	"ItemATent" in magazines player;
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
-
-    
+_hasSand =      "ItemSandbag" in magazines player;
+_hasWire =      "ItemWire" in magazines player;
+_hasTTrap =     "ItemTankTrap" in magazines player;
+_hasBTrap =     "TrapBear" in magazines player;
+_hasEtool = 	"ItemEtool" in magazines player;
+_betester =     "Itemshackprint" in magazines player;
 _canFill = 		count (nearestObjects [position player, ["Land_pumpa","Land_water_tank"], 4]) > 0;
 _isPond = 		false;
 _isWell = 		false;
@@ -121,13 +125,6 @@ if (!_canFill) then {
 
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
-//Off topic functions
-/*
-	if (player == player) then {
-			s_getAlive = player addAction["Force Gear Save", "\z\addons\dayz_code\system\forceGearSave.sqf"];
-	};
-*/
-//End off topic functions
 
 if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4)) then {	//Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
@@ -137,12 +134,12 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_isMan = cursorTarget isKindOf "Man";
 	_ownerID = cursorTarget getVariable ["characterID","0"];
 	_isAnimal = cursorTarget isKindOf "Animal";
-	_isDog =  (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
+	_isDog =  (cursorTarget isKindOf "Hen_random_F" || cursorTarget isKindOf "DZ_Fin");
 	_isZombie = cursorTarget isKindOf "zZombie_base";
 	_isPlayer = typeOf cursorTarget in AllPlayers_A3;
 	_hasClothes = typeOf cursorTarget in ["Camo1_DZ","Sniper1_DZ","Bandit1_DZ","Survivor2_DZ","Survivor3_DZ","Survivor4_DZ","Bandit2_DZ"];
 	_isDestructable = cursorTarget isKindOf "BuiltItems";
-	_isTent = cursorTarget isKindOf "TentStorage";
+	_ished = cursorTarget isKindOf "garage_repart";
 	_isFuel = false;
 	_isAlive = alive cursorTarget;
 	_canmove = canmove cursorTarget;
@@ -164,7 +161,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	//diag_log ("OWNERID = " + _ownerID + " CHARID = " + dayz_characterID + " " + str(_ownerID == dayz_characterID));
 	
 	//Allow player to delete objects
-	if(_isDestructable and _hasToolbox and _canDo) then {
+	if(_isDestructable and _hasToolbox and _ownerID == dayz_characterID) then {
 		if (s_player_deleteBuild < 0) then {
 			s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "\z\addons\dayz_code\actions\remove.sqf",cursorTarget, 1, true, true, "", ""];
 		};
@@ -173,17 +170,15 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_deleteBuild = -1;
 	};
 	
-	/*
-	//Allow player to force save
-	if((_isVehicle or _isTent) and _canDo and !_isMan) then {
-		if (s_player_forceSave < 0) then {
-			s_player_forceSave = player addAction [format[localize "str_actions_save",_text], "\z\addons\dayz_code\actions\forcesave.sqf",cursorTarget, 1, true, true, "", ""];
+	//Allow player to move objects
+	if(_isDestructable and _ownerID == dayz_characterID) then {
+		if (s_player_moveBuild < 0) then {
+			s_player_moveBuild = player addAction [format[localize "str_actions_move",_text], "\z\addons\dayz_code\actions\move2.sqf",cursorTarget, 1, true, true, "", ""];
 		};
 	} else {
-		player removeAction s_player_forceSave;
-		s_player_forceSave = -1;
+		player removeAction s_player_moveBuild;
+		s_player_moveBuild = -1;
 	};
-	*/
 	//flip vehicle
 	if ((_isVehicletype) and !_canmove and _isAlive and (player distance cursorTarget >= 2) and (count (crew cursorTarget))== 0 and ((vectorUp cursorTarget) select 2) < 0.5) then {
 		if (s_player_flipveh  < 0) then {
@@ -193,7 +188,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_flipveh;
 		s_player_flipveh = -1;
 	};
-    
+	
+	//Allow player to listening radio
+	if(_vehicle == player and _hasRadio and _canDo) then {
+		if (s_player_lisradio < 0) then {
+			s_player_lisradio = player addAction [localize "str_actions_self_11", "\z\addons\dayz_code\actions\radio.sqf",[], 1, false, true, "", ""];
+		};
+	} else {
+		player removeAction s_player_lisradio;
+		s_player_lisradio = -1;
+	};
 	
 	//Allow player to fill jerrycan
 	if(_hasFuelE and _isFuel and _canDo) then {
@@ -240,7 +244,54 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_fireout;
 		s_player_fireout = -1;
 	};
-	
+//Allow placing test shack
+if(_vehicle == player and _betester and _canDo) then {
+	if(s_shackbuild < 0) then {
+		s_shackbuild = player addAction [format["Build test shack"], "z\addons\dayz_code\actions\shack_pitch.sqf", "ItemShackprint", 1, false, true];
+	};
+} else	{
+	player removeAction s_shackbuild;
+	s_shackbuild = -1;
+};	
+//Allow placing of Sandbags
+if(_vehicle == player and _hasSand and _canDo and _hasEtool) then {
+	if(s_doSand < 0) then {
+		s_doSand = player addAction [format["Stack Sandbags%1"], "z\addons\dayz_code\actions\build.sqf", "ItemSandbag", 1, false, true];
+	};
+} else	{
+	player removeAction s_doSand;
+	s_doSand = -1;
+};
+
+//Allow placing of Wire    
+if(_vehicle == player and _hasWire and _canDo and _hasToolbox and _hasEtool) then {
+	if(s_doWire < 0) then {
+		s_doWire = player addAction [format["Build Wire Fence%1"], "z\addons\dayz_code\actions\build.sqf", "ItemWire", 1, false, true];
+	};
+} else	{
+	player removeAction s_doWire;
+	s_doWire = -1;
+};
+    
+//Allow placing of TTraps
+if(_vehicle == player and _hasTTrap and _canDo and _hasToolbox) then {
+	if(s_doTTrap < 0) then {
+		s_doTTrap = player addAction [format["Set Tank Trap%1"], "z\addons\dayz_code\actions\build.sqf", "ItemTankTrap", 1, false, true];
+	};
+} else	{
+	player removeAction s_doTTrap;
+	s_doTTrap = -1;
+};
+ 
+//Allow placing of bear traps 
+if(_vehicle == player and _hasBTrap and _canDo) then {
+	if(s_doBTrap < 0) then {
+		s_doBTrap = player addAction [format["Set Bear Trap%1"], "z\addons\dayz_code\actions\build.sqf", "TrapBear", 1, false, true];
+	};
+} else	{
+	player removeAction s_doBTrap;
+	s_doBTrap = -1;
+};	
 	//Packing my tent
 	if(cursorTarget isKindOf "TentStorage" and _canDo and _ownerID == dayz_characterID) then {
 		if ((s_player_packtent < 0) and (player distance cursorTarget < 3)) then {

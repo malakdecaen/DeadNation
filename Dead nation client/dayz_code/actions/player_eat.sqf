@@ -16,7 +16,7 @@ _itemorignal = "";
         _itemorignal = _x;
     };
 } forEach (magazines player);
-if (_itemoriginal == "") then {
+if (_itemorignal == "") then {
     {
         if (_x in meatraw) then {
             _itemorignal = _x;

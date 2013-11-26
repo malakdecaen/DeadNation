@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project name="DayZ">
+<Project name="deadnation">
 	<Package name="intro">
 		<Key ID="STR_INTRO_1">	
 			<Original>DEAN HALL PRESENTS</Original>
@@ -497,14 +497,14 @@
 			<Czech>Spojení navázáno, vytvářím postavu</Czech>
 		</Key>
 		<Key ID="str_player_18">
-			<Original>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</Original>
-			<English>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</English>
-			<German>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</German>
-			<Russian>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</Russian>
-			<Spanish>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</Spanish>
-			<Dutch>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</Dutch>
-			<French>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</French>
-			<Czech>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.stratis-z.fr (You are running version %1 and the server is running version %2)</Czech>
+			<Original>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</Original>
+			<English>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</English>
+			<German>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</German>
+			<Russian>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</Russian>
+			<Spanish>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</Spanish>
+			<Dutch>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</Dutch>
+			<French>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</French>
+			<Czech>You are running an incorrect version of DeadNation files, please download this file with the launcher or go on www.deadnation.eu (You are running version %1 and the server is running version %2)</Czech>
 		</Key>
 		<Key ID="str_player_20">
 			<Original>You must be near a water-source such as a pond or well to refill your water bottles</Original>
@@ -910,6 +910,16 @@
 			<French>Remplir le(s) Jerrican(s)</French>
 			<Czech>Naplnit kanystr</Czech>
 		</Key>
+		<Key ID="str_actions_self_11">
+			<Original>Listen Radio</Original>
+			<English>Listen Radio</English>
+			<German>Listen Radio</German>
+			<Russian>Listen Radio</Russian>
+			<Spanish>Listen Radio</Spanish>
+			<Dutch>Listen Radio</Dutch>
+			<French>Listen Radio</French>
+			<Czech>Listen Radio</Czech>
+		</Key>
 		<Key ID="str_actions_medical_01">
 			<Original>Drag Body</Original>
 			<English>Drag Body</English>
@@ -1119,6 +1129,16 @@
 			<Dutch>%1 verwijderen</Dutch>
 			<French>Enlever %1</French>
 			<Czech>Odstranit %1</Czech>
+		</Key>
+		<Key ID="str_actions_move">
+			<Original>move %1</Original>
+			<English>move %1</English>
+			<German>move %1</German>
+			<Russian>move %1</Russian>
+			<Spanish>move %1</Spanish>
+			<Dutch>move %1</Dutch>
+			<French>Deplacer %1</French>
+			<Czech>move %1</Czech>
 		</Key>
 		<Key ID="str_actions_save">
 			<Original>Save %1</Original>

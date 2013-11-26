@@ -3,8 +3,8 @@ _list = getposATL player nearEntities [["CAAnimalBase"],dayz_animalDistance];
 
 if (count _list < dayz_maxAnimals) then {
 	//Find where animal likes
-	_animalssupported = ["Hen_random_F","Fin_random_F","Sheep_random_F","Snake_random_F","Rabbit_F"]; //Poule, chien, mouton, serpent, lapin
-	//_animalssupported = ["DZ_Pastor"];
+	//_animalssupported = ["Hen_random_F","Sheep_random_F","Snake_random_F","Rabbit_F"]; //Poule, chien, mouton, serpent, lapin
+	_animalssupported = ["Hen_random_F"];
 	_type =  (_animalssupported select floor(random(count _animalssupported)));
 	_root = configFile >> "CfgVehicles" >> _type;
 	_favouritezones = "(1 + meadow) * (1 - forest) * (1 - trees)";
@@ -17,7 +17,7 @@ if (count _list < dayz_maxAnimals) then {
 	_list = 		_Pos nearEntities [["CAAnimalBase","Man"],50];
 	
 	if (player distance _Pos < dayz_animalDistance and NOT surfaceIsWater _Pos and (count _list <= 1)) then {
-		if (_type == "DZ_Pastor") then { _agent = createAgent [_type, _Pos, [], 0, "NONE"]; } else { _agent = createAgent [_type, _Pos, [], 0, "FORM"]; };
+		if (_type == "Hen_random_F") then { _agent = createAgent [_type, _Pos, [], 0, "NONE"]; } else { _agent = createAgent [_type, _Pos, [], 0, "FORM"]; };
 		_agent setpos _Pos;
 		_id = [_pos,_agent] execFSM "\z\addons\dayz_code\system\animal_agent.fsm";
 	};

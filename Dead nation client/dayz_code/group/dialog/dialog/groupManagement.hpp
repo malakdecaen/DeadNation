@@ -16,7 +16,7 @@ class GroupManagement {
 		
 		class MainBG : w_RscPicture {
 			idc = -1;
-			text = "\ca\ui\data\ui_background_controlers_ca.paa";		
+			//text = "\ca\ui\data\ui_background_controlers_ca.paa";		
 			moving = true;
 			x = 0.0; y = 0.1;
 			w = 1.0; h = 0.65;

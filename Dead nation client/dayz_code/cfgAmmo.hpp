@@ -14,10 +14,7 @@ class CfgAmmo {
 		timeToLive = 0;
 	};
 	class Melee;
-	class Machete_Swing_Ammo : Melee {
-		hit = 9;
-		simulation = "shotBullet";
-	};
+	
 	class SmokeShell;
 	
 	class Chemlight_green: SmokeShell

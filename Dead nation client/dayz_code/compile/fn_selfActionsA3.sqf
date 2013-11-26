@@ -25,8 +25,6 @@ _hastinitem = false;
 
 } forEach boil_tin_cans;
 
-//A3 Med Definitions and other vars by Papzzz, Pwnoz0r and MistaD
-
 _unit = 			player;
 _injured = 			player getVariable ["USEC_injured", false];
 _inPain = 			player getVariable ["USEC_inPain", false];
@@ -83,10 +81,10 @@ if (!isNull _nearLightR) then {
 _hasKnife = 	"ItemKnife" in magazines player;
 _hasToolbox = 	"ItemToolbox" in magazines player;
 _hasTent = 		"ItemTent" in magazines player;
-_hasATent = 	"ItemTent" in magazines player;
+//_hasATent = 	"ItemTent" in magazines player;
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 
-    
+_canCut = 		cursorTarget isKindOf "trees";    
 _canFill = 		count (nearestObjects [position player, ["Land_pumpa","Land_water_tank"], 4]) > 0;
 _isPond = 		false;
 _isWell = 		false;
@@ -119,16 +117,6 @@ if (!_canFill) then {
 };
 
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
-
-//Off topic functions
-/*
-	if (player == player) then {
-			s_getAlive = player addAction["Force Gear Save", "\z\addons\dayz_code\system\forceGearSave.sqf"];
-	};
-*/
-//End off topic functions
-
-//Start of A3 Scroll functions by Papzzz and Pwnoz0r
 
 //Grab GChem
 if (_canPickLightG and !dayz_hasLight) then {
@@ -239,9 +227,9 @@ if (_canPickLightR and !dayz_hasLight) then {
 	};
 
 	//Allow player to chop trees
-	if (_vehicle == player and (["forest",dayz_surfaceType] call fnc_inString) and _hasHatchet) then {
+	if (_vehicle == player and ("GdtForestPine" == surfaceType getPosATL player)) then {
 		if (s_player_chopA3 < 0) then {
-			s_player_chopA3 = player addAction [format["Chop Wood%1"], "\z\addons\dayz_code\actions\player_chopWood.sqf",[_unit], 1, true, true, "", ""];
+			s_player_chopA3 = player addAction [format["Pitch shack%1"], "z\addons\dayz_code\actions\atent_pitch.sqf"];
 		};
 	} else {
 		player removeAction s_player_chopA3;
@@ -348,15 +336,15 @@ if (_canPickLightR and !dayz_hasLight) then {
 		s_doTent = -1;
 	};
 	
-	//Allow placing of tents
-	if(_vehicle == player and _hasATent) then {
-		if(s_doATent < 0) then {
-			s_doATent = player addAction [format["Pitch shack%1"], "z\addons\dayz_code\actions\atent_pitch.sqf"];
-		};
-	} else	{
-		player removeAction s_doATent;
-		s_doATent = -1;
-	};
+	//Allow placing a shack
+	//if(_vehicle == player and _hasATent) then {
+		//if(s_doATent < 0) then {
+			//s_doATent = player addAction [format["Pitch shack%1"], "z\addons\dayz_code\actions\shack_pitch.sqf"];
+		//};
+	//} else	{
+		//player removeAction s_doATent;
+		//s_doATent = -1;
+	//};
 	
 	_hasEpi = 		"ItemEpinephrine" in magazines player;
 	//Allow epi adrenaline
@@ -372,7 +360,7 @@ if (_canPickLightR and !dayz_hasLight) then {
 	//Custom Get in Back script
     if (!isNull cursorTarget and (player distance cursorTarget < 4) and !_inVehicle) then {
         _isAlive = alive cursorTarget;
-        _isCustom = typeOf cursorTarget in ["Old_bike_TK_CIV_EP1","Old_bike_TK_INS_EP1","ATV_US_EP1","ATV_CZ_EP1","Tractor","VolhaLimo_TK_CIV_EP1","Volha_2_TK_CIV_EP1","Volha_1_TK_CIV_EP1","car_sedan","car_hatchback","Lada2_TK_CIV_EP1","Lada1_TK_CIV_EP1","Skoda","Lada1","Lada2","LadaLM","SkodaRed","SkodaGreen","SkodaBlue","datsun1_civil_3_open","datsun1_civil_1_open","hilux1_civil_3_open_EP1","hilux1_civil_1_open"];
+        _isCustom = typeOf cursorTarget in ["C_Offroad_01_F","C_Quadbike_01_F","I_Heli_Transport_02_F","B_Heli_Light_01_F","C_Rubberboat"];
         if (_isCustom and _isAlive and !r_player_onVehicleC and alive player) then {
             _seat = 0;
             _text = "";
@@ -383,7 +371,7 @@ if (_canPickLightR and !dayz_hasLight) then {
                 _text = "Get on ";
                 _text2 = " on top";
             };
-            if (_type in ["ATV_US_EP1","ATV_CZ_EP1","Old_bike_TK_CIV_EP1","Old_bike_TK_INS_EP1"]) then {
+            if (_type in ["C_Offroad_01_F","C_Quadbike_01_F","I_Heli_Transport_02_F","B_Heli_Light_01_F","C_Rubberboat"]) then {
                 _text = "Get on ";
                 _text2 = " on back";
             };
@@ -401,7 +389,7 @@ if (_canPickLightR and !dayz_hasLight) then {
             };
             _type = getText (configFile >> "CfgVehicles" >> _type >> "displayname");
             if (s_player_getin1 < 0) then {
-                if (typeOf cursorTarget in ["Lada2_TK_CIV_EP1","Lada1_TK_CIV_EP1","Skoda","Lada1","Lada2","LadaLM","SkodaRed","SkodaGreen","SkodaBlue","VolhaLimo_TK_CIV_EP1","Volha_2_TK_CIV_EP1","Volha_1_TK_CIV_EP1","car_sedan","car_hatchback"]) then {
+                if (typeOf cursorTarget in ["C_Offroad_01_F","C_Quadbike_01_F","C_Rubberboat"]) then {
                     _seatSide = " (Left)";
                     s_player_getin1 = player addAction [format["%1%2%3%4",_text,_type,_text2,_seatSide], "\z\addons\dayz_code\actions\player_getin.sqf",0, 0, true, true, "", ""];	
                 };

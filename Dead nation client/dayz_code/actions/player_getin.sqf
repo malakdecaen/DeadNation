@@ -14,7 +14,7 @@ _dir = 0;
         _dir = 270;
     };
 
-    if (typeOf cursorTarget in ["ATV_US_EP1","ATV_CZ_EP1"]) then
+    if (typeOf cursorTarget in ["C_Offroad_01_F","C_Quadbike_01_F","I_Heli_Transport_02_F","B_Heli_Light_01_F","C_Rubberboat"];) then
     {
         _carrier = cursorTarget;
         _modelArray = [0,-0.8,-1.3];
@@ -28,14 +28,14 @@ _dir = 0;
         _dir = 270;
     };
  
-    if (typeOf cursorTarget in ["VolhaLimo_TK_CIV_EP1","Volha_2_TK_CIV_EP1","Volha_1_TK_CIV_EP1","car_sedan","car_hatchback"]) then
+    if (typeOf cursorTarget in ["C_Offroad_01_F","C_Quadbike_01_F","I_Heli_Transport_02_F","B_Heli_Light_01_F","C_Rubberboat"];) then
     {
         _carrier = cursorTarget;
         _modelArray = [0,-2,-1.3];
         _dir = -90;
     };
    
-    if (typeOf cursorTarget in ["Lada2_TK_CIV_EP1","Lada1_TK_CIV_EP1","Skoda","Lada1","Lada2","LadaLM","SkodaRed","SkodaGreen","SkodaBlue"]) then
+    if (typeOf cursorTarget in ["C_Offroad_01_F","C_Quadbike_01_F","I_Heli_Transport_02_F","B_Heli_Light_01_F","C_Rubberboat"];) then
     {
         _carrier = cursorTarget;
         if (_position == 0) then {
@@ -48,7 +48,7 @@ _dir = 0;
         };
     };
    
-    if (typeOf cursorTarget in ["datsun1_civil_3_open","datsun1_civil_1_open","hilux1_civil_3_open_EP1","hilux1_civil_1_open"]) then
+    if (typeOf cursorTarget in ["C_Offroad_01_F","C_Quadbike_01_F","I_Heli_Transport_02_F","B_Heli_Light_01_F","C_Rubberboat"];) then
     {
         _carrier = cursorTarget;
         if (_position == 0) then {

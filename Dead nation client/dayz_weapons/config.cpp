@@ -30,6 +30,14 @@ class CfgPatches {
 		requiredAddons[] = {"dayz_equip"};
 	};
 };
+class Mode_SemiAuto;	// External class reference
+class Mode_FullAuto;	// External class reference
+class Mode_Burst;	// External class reference
+
+class CfgRecoils {
+	DZ_Swing[] = {0, 0.06, -0.1, 0, 0.1, -0.12, 0.1, 0, 0};
+	DZ_Stab[] = {0.02, -0.5, 0.2, 0.05, -0.5, 0.3, 0.04, 0, -0.1, 0.5, 0, 0};
+};
 
 class ItemActions {
 	class Use {
@@ -39,240 +47,189 @@ class ItemActions {
 	};
 };
 
-class CfgMovesBasic;
-class CfgMovesBasic_DZ {
-class ManActions {
-GestureSwing = " ";
+class CfgMovesBasic {
+	class ManActions {
+		GestureSwing = " ";
+	};
+	
+	class Actions {
+		class NoActions : ManActions {
+			GestureSwing[] = {"GestureSwing", "Gesture"};
+		};
+	};
 };
-
-class Actions {
-class NoActions : ManActions {
-GestureSwing[] = {"GestureSwing", "Gesture"};
-};
-};
-};
-
 class CfgGesturesMale {
-skeletonName = "OFP2_ManSkeleton";
-
-class ManActions {};
-
-class Actions {
-class NoActions {
-turnSpeed = 0;
-upDegree = 0;
-limitFast = 1;
-useFastMove = 0;
-};
-};
-
-class Default {
-actions = "NoActions";
-file = "";
-looped = true;
-speed = 0.5;
-relSpeedMin = 1;
-relSpeedMax = 1;
-soundEnabled = false;
-soundOverride = "";
-soundEdge[] = {0.5, 1};
-terminal = false;
-equivalentTo = "";
-connectAs = "";
-connectFrom[] = {};
-connectTo[] = {};
-interpolateWith[] = {};
-interpolateTo[] = {};
-interpolateFrom[] = {};
-mask = "empty";
-interpolationSpeed = 6;
-interpolationRestart = false;
-preload = false;
-disableWeapons = true;
-enableOptics = true;
-showWeaponAim = true;
-enableMissile = true;
-enableBinocular = true;
-showItemInHand = false;
-showItemInRightHand = false;
-showHandGun = false;
-canPullTrigger = true;
-walkcycles = 1;
-headBobMode = 0;
-headBobStrength = 0;
-leftHandIKBeg = false;
-leftHandIKEnd = false;
-rightHandIKBeg = false;
-rightHandIKEnd = false;
-leftHandIKCurve[] = {1};
-rightHandIKCurve[] = {1};
-forceAim = 0;
-};
-
-class States {
-class GestureSwing : Default {
-file = "\dayz_weapons\anim\melee_hatchet_swing.rtm";
-looped = false;
-speed = 1.28205;
-mask = "handsWeapon";
-headBobStrength = 0.2;
-headBobMode = 2;
-rightHandIKBeg = false;
-rightHandIKEnd = false;
-};
-};
-
-class BlendAnims {
-handsWeapon[] = {"head", 1, "neck1", 1, "neck", 1, "weapon", 1, "LeftShoulder", 1, "LeftArm", 1, "LeftArmRoll", 1, "LeftForeArm", 1, "LeftForeArmRoll", 1, "LeftHand", 1, "LeftHandRing", 1, "LeftHandPinky1", 1, "LeftHandPinky2", 1, "LeftHandPinky3", 1, "LeftHandRing1", 1, "LeftHandRing2", 1, "LeftHandRing3", 1, "LeftHandMiddle1", 1, "LeftHandMiddle2", 1, "LeftHandMiddle3", 1, "LeftHandIndex1", 1, "LeftHandIndex2", 1, "LeftHandIndex3", 1, "LeftHandThumb1", 1, "LeftHandThumb2", 1, "LeftHandThumb3", 1, "RightShoulder", 1, "RightArm", 1, "RightArmRoll", 1, "RightForeArm", 1, "RightForeArmRoll", 1, "RightHand", 1, "RightHandRing", 1, "RightHandPinky1", 1, "RightHandPinky2", 1, "RightHandPinky3", 1, "RightHandRing1", 1, "RightHandRing2", 1, "RightHandRing3", 1, "RightHandMiddle1", 1, "RightHandMiddle2", 1, "RightHandMiddle3", 1, "RightHandIndex1", 1, "RightHandIndex2", 1, "RightHandIndex3", 1, "RightHandThumb1", 1, "RightHandThumb2", 1, "RightHandThumb3", 1, "Spine", 0.2, "Spine1", 0.3, "Spine2", 1, "Spine3", 1};
-};
-};
-
-class Mode_SemiAuto {
-multiplier = 1;
-burst = 1;
-dispersion = 0.0002;
-sound[] = {"", 10, 1};
-soundBegin[] = {"sound", 1};
-soundEnd[] = {};
-soundLoop[] = {};
-soundContinuous = 0;
-soundBurst = 1;
-reloadTime = 0.1;
-ffCount = 1;
-ffMagnitude = 0.5;
-ffFrequency = 11;
-flash = "gunfire";
-flashSize = 0.1;
-recoil = "Empty";
-recoilProne = "Empty";
-autoFire = false;
-aiRateOfFire = 0.5;	// delay between shots at given distance
-aiRateOfFireDistance = 500;
-useAction = false;
-useActionTitle = "";
-showToPlayer = true;
-minRange = 30;
-minRangeProbab = 0.25;
-midRange = 300;
-midRangeProbab = 0.58;
-maxRange = 600;
-maxRangeProbab = 0.04;
-displayName = "Semi";
+	skeletonName = "OFP2_ManSkeleton";
+	
+	class ManActions {};
+	
+	class Actions {
+		class NoActions {
+			turnSpeed = 0;
+			upDegree = 0;
+			limitFast = 1;
+			useFastMove = 0;
+		};
+	};
+	
+	class Default {
+		actions = "NoActions";
+		file = "";
+		looped = 1;
+		speed = 0.5;
+		relSpeedMin = 1;
+		relSpeedMax = 1;
+		soundEnabled = 0;
+		soundOverride = "";
+		soundEdge[] = {0.5, 1};
+		terminal = 0;
+		equivalentTo = "";
+		connectAs = "";
+		connectFrom[] = {};
+		connectTo[] = {};
+		interpolateWith[] = {};
+		interpolateTo[] = {};
+		interpolateFrom[] = {};
+		mask = "empty";
+		interpolationSpeed = 6;
+		interpolationRestart = 0;
+		preload = 0;
+		disableWeapons = 1;
+		enableOptics = 1;
+		showWeaponAim = 1;
+		enableMissile = 1;
+		enableBinocular = 1;
+		showItemInHand = 0;
+		showItemInRightHand = 0;
+		showHandGun = 0;
+		canPullTrigger = 1;
+		walkcycles = 1;
+		headBobMode = 0;
+		headBobStrength = 0;
+		leftHandIKBeg = 0;
+		leftHandIKEnd = 0;
+		rightHandIKBeg = 0;
+		rightHandIKEnd = 0;
+		leftHandIKCurve[] = {1};
+		rightHandIKCurve[] = {1};
+		forceAim = 0;
+	};
+	
+	class States {
+		class GestureSwing : Default {
+			file = "\dayz_weapons\anim\melee_hatchet_swing.rtm";
+			looped = 0;
+			speed = 1.28205;
+			mask = "handsWeapon";
+			headBobStrength = 0.2;
+			headBobMode = 2;
+			rightHandIKBeg = 0;
+			rightHandIKEnd = 0;
+		};
+	};
+	
+	class BlendAnims {
+		handsWeapon[] = {"head", 1, "neck1", 1, "neck", 1, "weapon", 1, "LeftShoulder", 1, "LeftArm", 1, "LeftArmRoll", 1, "LeftForeArm", 1, "LeftForeArmRoll", 1, "LeftHand", 1, "LeftHandRing", 1, "LeftHandPinky1", 1, "LeftHandPinky2", 1, "LeftHandPinky3", 1, "LeftHandRing1", 1, "LeftHandRing2", 1, "LeftHandRing3", 1, "LeftHandMiddle1", 1, "LeftHandMiddle2", 1, "LeftHandMiddle3", 1, "LeftHandIndex1", 1, "LeftHandIndex2", 1, "LeftHandIndex3", 1, "LeftHandThumb1", 1, "LeftHandThumb2", 1, "LeftHandThumb3", 1, "RightShoulder", 1, "RightArm", 1, "RightArmRoll", 1, "RightForeArm", 1, "RightForeArmRoll", 1, "RightHand", 1, "RightHandRing", 1, "RightHandPinky1", 1, "RightHandPinky2", 1, "RightHandPinky3", 1, "RightHandRing1", 1, "RightHandRing2", 1, "RightHandRing3", 1, "RightHandMiddle1", 1, "RightHandMiddle2", 1, "RightHandMiddle3", 1, "RightHandIndex1", 1, "RightHandIndex2", 1, "RightHandIndex3", 1, "RightHandThumb1", 1, "RightHandThumb2", 1, "RightHandThumb3", 1, "Spine", 0.2, "Spine1", 0.3, "Spine2", 1, "Spine3", 1};
+	};
 };
 
 class DZ_SingleMelee : Mode_SemiAuto {
-multiplier = 1;
-burst = 5;
-displayName = "Hack";
-dispersion = 0.2;
-sound[] = {"", 0, 1};
-soundContinuous = 1;
-reloadTime = 1;
-magazineReloadTime = 1;
-ffCount = 1;
-optics = "false";
-recoil = "empty";
-autoFire = "true";
-aiRateOfFire = 0.7;	// delay between shots at given distance
-aiRateOfFireDistance = 2.2;
-useAction = "false";
-useActionTitle = "";
-recoilProne = "empty";
-showToPlayer = "true";
-minRange = 0;
-minRangeProbab = 0.8;
-midRange = 0.3;
-midRangeProbab = 0.8;
-maxRange = 3;
-maxRangeProbab = 0;
-soundBurst = 1;
-};
-
-class CfgRecoils {
-DZ_Swing[] = {0, 0.06, -0.1, 0, 0.1, -0.12, 0.1, 0, 0};
-DZ_Stab[] = {0.02, -0.5, 0.2, 0.05, -0.5, 0.3, 0.04, 0, -0.1, 0.5, 0, 0};
+	multiplier = 1;
+	burst = 5;
+	displayName = "Hack";
+	dispersion = 0.2;
+	sound[] = {"", 0, 1};
+	soundContinuous = 1;
+	reloadTime = 1;
+	magazineReloadTime = 1;
+	ffCount = 1;
+	optics = "false";
+	recoil = "empty";
+	autoFire = "true";
+	CraterEffects = "NoCrater";
+	explosionEffects = "NoExplosion";
+	aiRateOfFire = 0.7;
+	aiRateOfFireDistance = 2.2;
+	useAction = 1;
+	useActionTitle = "GestureSwing";
+	recoilProne = "empty";
+	showToPlayer = "true";
+	minRange = 0;
+	minRangeProbab = 0.8;
+	midRange = 0.3;
+	midRangeProbab = 0.8;
+	maxRange = 3;
+	maxRangeProbab = 0;
+	soundBurst = 1;
 };
 
 class cfgWeapons {
 class Rifle;	// External class reference
+class WeaponSlotsInfo;	// External class reference
 class MeleeWeapon : Rifle {
-distanceZoomMin = 50;
-distanceZoomMax = 50;
-canDrop = false;
-UiPicture = "\CA\weapons\data\Ico\i_regular_CA.paa";
-optics = true;
-modelOptics = "-";
-modes[] = {"Single"};
-fireLightDuration = 0;
-fireLightIntensity = 0;
-reloadMagazineSound[] = {"", 1};
-
-class Single : DZ_SingleMelee {
-multiplier = 1;
-burst = 1;
-displayName = "Hack";
-dispersion = 0.2;
-optics = true;
-recoil = "DZ_Swing";
-autoFire = true;
-aiRateOfFire = 0.7;	// delay between shots at given distance
-aiRateOfFireDistance = 2.2;
-useAction = false;
-useActionTitle = "";
-recoilProne = "DZ_Swing";
-swing0[] = {"dayz_weapons\sounds\swing_0", 1.77828, 1, 30};
-swing1[] = {"dayz_weapons\sounds\swing_1", 1.77828, 1, 30};
-soundBegin[] = {"swing0", 0.5, "swing1", 0.5};
-drySound[] = {"", 1};
-reloadTime = 0.7;
-reloadMagazineSound[] = {"", 1};
-showToPlayer = true;
-minRange = 0;
-minRangeProbab = 0.8;
-midRange = 0.3;
-midRangeProbab = 0.8;
-maxRange = 3;
-maxRangeProbab = 0;
-};
-cursor = "Vehicle_Grenade_W";
-cursoraim = "Vehicle_Grenade_W";
-cursorSize = 1;
-};
-
-class MeleeHatchet : MeleeWeapon {
-scope = public;
-model = "\dayz_weapons\models\Hatchet_weaponized";
-picture = "\dayz_equip\textures\equip_hatchet_CA.paa";
-displayName = $STR_EQUIP_NAME_41;
-magazines[] = {"Hatchet_Swing"};
-handAnim[] = {"OFP2_ManSkeleton", "\dayz_weapons\anim\melee_hatchet_holding.rtm"};
-
-class ItemActions {
-class Use {
-text = $STR_ACTIONS_CHOPWOOD;
-script = "spawn player_chopWood;";
-};
-
-class Toolbelt {
-text = "Add to Toolbelt";
-script = "spawn player_addToolbelt;";
-use[] = {"MeleeHatchet"};
-output[] = {"ItemHatchet"};
-};
-
-class Drop {
-text = "Drop Hatchet";
-script = "spawn player_dropWeapon;";
-use[] = {"Hatchet_Swing"};
-};
-};
-
-class Library {
-libTextDesc = $STR_EQUIP_DESC_41;
-};
-descriptionShort = $STR_EQUIP_DESC_41;
-};
+		scope = 2;
+		distanceZoomMin = 50;
+		distanceZoomMax = 50;
+		canDrop = 0;
+		optics = 1;
+		modelOptics = "-";
+		modes[] = {"Single"};
+		fireLightDuration = 0;
+		fireLightIntensity = 0;
+		reloadMagazineSound[] = {"", 1};
+		
+		class Single : DZ_SingleMelee {
+			multiplier = 1;
+			burst = 1;
+			displayName = "Hack";
+			dispersion = 0.0002;
+			optics = 1;
+			recoil = "DZ_Swing";
+			autoFire = 1;
+			CraterEffects = "NoCrater";
+			explosionEffects = "NoExplosion";
+			aiRateOfFire = 0.7;
+			aiRateOfFireDistance = 2.2;
+			useAction = 0;
+			useActionTitle = "";
+			recoilProne = "DZ_Swing";
+			swing0[] = {"dayz_weapons\sounds\swing_0", 1.77828, 1, 30};
+            swing1[] = {"dayz_weapons\sounds\swing_1", 1.77828, 1, 30};
+			soundBegin[] = {"swing0", 0.5, "swing1", 0.5};
+			drySound[] = {"", 1};
+			reloadTime = 0;
+			reloadMagazineSound[] = {"", 1};
+			showToPlayer = 1;
+			minRange = 0;
+			minRangeProbab = 0.8;
+			midRange = 0.3;
+			midRangeProbab = 0.8;
+			maxRange = 3;
+			maxRangeProbab = 0;
+		};
+		cursor = "EmptyCursor";
+		cursorAim = "throw";
+		cursorSize = 1;
+		weaponInfoType = "RscWeaponEmpty";
+		cameraDir = "look";
+	};
 	
+	class MeleeHatchet : MeleeWeapon {
+		autoreload = 1;
+		scope = 2;
+		weaponReloadtime = 0.75;
+		model = "\dayz_weapons\models\Hatchet_weaponized.p3d";
+		picture = "\dayz_equip\textures\equip_hatchet_CA.paa";
+		displayName = "Hatchet";
+		descriptionUse = "Hatchet";
+		magazines[] = {"Hatchet_Swing"};
+		handAnim[] = {"OFP2_ManSkeleton", "\dayz_weapons\anim\melee_hatchet_holding.rtm"};
+		descriptionShort = $STR_EQUIP_DESC_41;
+		
+		class WeaponSlotsInfo : WeaponSlotsInfo {
+			mass = 45;
+		};
+	};
 	class MeleeCrowbar : MeleeHatchet {
 		scope = public;
 		model = "\dayz_weapons\models\crowbar_weaponized";
@@ -371,19 +328,18 @@ class cfgMagazines {
 	class CA_Magazine;	// External class reference
 	
 	class Hatchet_Swing : CA_Magazine {
-		scope = public;
-		type = VSoft;
-		autoReload = false;
+		scope = 2;
+		type = 0;
+		autoReload = 0;
 		flash = "";
 		flashSize = 0;
-		initSpeed = 100;
-		maxLeadSpeed = 20;	// max estimated speed km/h
-		dexterity = 20;
+		initSpeed = 73;
+		maxLeadSpeed = 20;
 		picture = "\dayz_weapons\textures\equip_shells_ca.paa";
-		displayName = "Hatchet";
-		displayNameMagazine = "Hatchet";
-		shortNameMagazine = "Hatchet";
-		optics = false;
+		displayName = "Melee";
+		displayNameMagazine = "Melee";
+		shortNameMagazine = "Melee";
+		optics = 0;
 		distanceZoomMin = 0;
 		distanceZoomMax = 0;
 		count = 100000;
@@ -393,6 +349,7 @@ class cfgMagazines {
 		reloadMagazineSound[] = {"", 0, 1};
 		modes[] = {"Single"};
 		ammo = "Hatchet_Swing_Ammo";
+		mass = 0;
 	};
 	
 	class crowbar_swing : Hatchet_Swing {
@@ -839,197 +796,49 @@ class cfgAmmo {
 	class Default;	// External class reference
 	
 	class Melee : Default {
-		indirectHit = 0;
-		indirectHitRange = 0;
-		minRange = 1.1;
-		minRangeProbab = 0.8;
-		midRange = 1.2;
-		midRangeProbab = 0.8;
-		maxRange = 4;
-		maxRangeProbab = 0;
 		explosive = "false";
 		simulationStep = 0.001;
-		timeToLive = 0.04;
+		timeToLive = 0.05;
+		typicalSpeed = 60;
+		airFriction = -1e-005;
 		soundFly[] = {"", 0, 1};
 		soundEngine[] = {"", 0, 1};
-		visibleFire = 0.1;	// how much is visible when this weapon is fired
+		visibleFire = 0.1;
 		audibleFire = 1;
-		visibleFireTime = 0;	// how long is it visible
-		maxControlRange = 1;	// max range for manual control, 0 = no control (passive weapon)
-		soundDefault1[] = {"ca\sounds\weapons\hits\hit_concrete_01", 0.316228, 1, 60};
-		soundDefault2[] = {"ca\sounds\weapons\hits\hit_concrete_02", 0.316228, 1, 60};
-		soundDefault3[] = {"ca\sounds\weapons\hits\hit_concrete_03", 0.316228, 1, 60};
-		soundDefault4[] = {"ca\sounds\weapons\hits\hit_concrete_04", 0.316228, 1, 60};
-		soundDefault5[] = {"ca\sounds\weapons\hits\rico_hit_concrete_01", 0.316228, 1, 60};
-		soundDefault6[] = {"ca\sounds\weapons\hits\rico_hit_concrete_02", 0.316228, 1, 60};
-		soundDefault7[] = {"ca\sounds\weapons\hits\rico_hit_concrete_03", 0.316228, 1, 60};
-		soundDefault8[] = {"ca\sounds\weapons\hits\rico_hit_concrete_04", 0.316228, 1, 60};
-		soundGroundSoft1[] = {"ca\sounds\weapons\hits\hit_earth_01", 0.0562341, 1, 60};
-		soundGroundSoft2[] = {"ca\sounds\weapons\hits\hit_earth_02", 0.0562341, 1, 60};
-		soundGroundSoft3[] = {"ca\sounds\weapons\hits\hit_earth_03", 0.0562341, 1, 60};
-		soundGroundSoft4[] = {"ca\sounds\weapons\hits\hit_earth_04", 0.0562341, 1, 60};
-		soundGroundSoft5[] = {"ca\sounds\weapons\hits\rico_hit_earth_01", 0.0562341, 1, 60};
-		soundGroundSoft6[] = {"ca\sounds\weapons\hits\rico_hit_earth_02", 0.0562341, 1, 60};
-		soundGroundSoft7[] = {"ca\sounds\weapons\hits\rico_hit_earth_03", 0.0562341, 1, 60};
-		soundGroundSoft8[] = {"ca\sounds\weapons\hits\rico_hit_earth_04", 0.0562341, 1, 60};
-		soundGroundHard1[] = {"ca\sounds\weapons\hits\hit_concrete_01", 0.125893, 1, 80};
-		soundGroundHard2[] = {"ca\sounds\weapons\hits\hit_concrete_02", 0.125893, 1, 80};
-		soundGroundHard3[] = {"ca\sounds\weapons\hits\hit_concrete_03", 0.125893, 1, 80};
-		soundGroundHard4[] = {"ca\sounds\weapons\hits\hit_concrete_04", 0.125893, 1, 80};
-		soundGroundHard5[] = {"ca\sounds\weapons\hits\rico_hit_concrete_01", 0.125893, 1, 80};
-		soundGroundHard6[] = {"ca\sounds\weapons\hits\rico_hit_concrete_02", 0.125893, 1, 80};
-		soundGroundHard7[] = {"ca\sounds\weapons\hits\rico_hit_concrete_03", 0.125893, 1, 80};
-		soundGroundHard8[] = {"ca\sounds\weapons\hits\rico_hit_concrete_04", 0.125893, 1, 80};
-		soundMetal1[] = {"ca\sounds\weapons\hits\hit_metalplate_01", 0.316228, 1, 90};
-		soundMetal2[] = {"ca\sounds\weapons\hits\hit_metalplate_02", 0.316228, 1, 90};
-		soundMetal3[] = {"ca\sounds\weapons\hits\hit_metalplate_03", 0.316228, 1, 90};
-		soundMetal4[] = {"ca\sounds\weapons\hits\hit_metalplate_04", 0.316228, 1, 90};
-		soundMetal5[] = {"ca\sounds\weapons\hits\hit_metalplate_05", 0.316228, 1, 90};
-		soundMetal6[] = {"ca\sounds\weapons\hits\hit_metalplate_06", 0.316228, 1, 90};
-		soundMetal7[] = {"ca\sounds\weapons\hits\hit_metalplate_07", 0.316228, 1, 90};
-		soundMetal8[] = {"ca\sounds\weapons\hits\hit_metalplate_08", 0.316228, 1, 90};
-		soundMetal9[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_01", 0.316228, 1, 90};
-		soundMetal10[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_02", 0.316228, 1, 90};
-		soundMetal11[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_03", 0.316228, 1, 90};
-		soundMetal12[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_04", 0.316228, 1, 90};
-		soundGlass1[] = {"ca\sounds\weapons\hits\hit_glass_01", 0.177828, 1, 50};
-		soundGlass2[] = {"ca\sounds\weapons\hits\hit_glass_02", 0.177828, 1, 50};
-		soundGlass3[] = {"ca\sounds\weapons\hits\hit_glass_03", 0.177828, 1, 50};
-		soundGlass4[] = {"ca\sounds\weapons\hits\hit_glass_04", 0.177828, 1, 50};
-		soundGlass5[] = {"ca\sounds\weapons\hits\hit_glass_05", 0.177828, 1, 50};
-		soundGlass6[] = {"ca\sounds\weapons\hits\hit_glass_06", 0.177828, 1, 50};
-		soundGlass7[] = {"ca\sounds\weapons\hits\hit_glass_07", 0.177828, 1, 50};
-		soundGlass8[] = {"ca\sounds\weapons\hits\hit_glass_08", 0.177828, 1, 50};
-		soundGlass9[] = {"ca\sounds\weapons\hits\hit_glass_09", 0.177828, 1, 50};
-		soundGlass10[] = {"ca\sounds\weapons\hits\hit_glass_10", 0.177828, 1, 50};
-		soundIron1[] = {"ca\sounds\weapons\hits\hit_iron_01", 0.316228, 1, 90};
-		soundIron2[] = {"ca\sounds\weapons\hits\hit_iron_02", 0.316228, 1, 90};
-		soundIron3[] = {"ca\sounds\weapons\hits\hit_iron_03", 0.316228, 1, 90};
-		soundIron4[] = {"ca\sounds\weapons\hits\hit_iron_04", 0.316228, 1, 90};
-		soundIron5[] = {"ca\sounds\weapons\hits\hit_iron_05", 0.316228, 1, 90};
-		soundIron6[] = {"ca\sounds\weapons\hits\hit_iron_06", 0.316228, 1, 90};
-		soundIron7[] = {"ca\sounds\weapons\hits\hit_iron_07", 0.316228, 1, 90};
-		soundIron8[] = {"ca\sounds\weapons\hits\hit_iron_08", 0.316228, 1, 90};
-		soundIron9[] = {"ca\sounds\weapons\hits\rico_hit_iron_01", 0.316228, 1, 90};
-		soundIron10[] = {"ca\sounds\weapons\hits\rico_hit_iron_02", 0.316228, 1, 90};
-		soundIron11[] = {"ca\sounds\weapons\hits\rico_hit_iron_03", 0.316228, 1, 90};
-		soundIron12[] = {"ca\sounds\weapons\hits\rico_hit_iron_04", 0.316228, 1, 90};
-		soundGlassArmored1[] = {"ca\sounds\weapons\hits\hit_glass_armored_01", 0.177828, 1, 60};
-		soundGlassArmored2[] = {"ca\sounds\weapons\hits\hit_glass_armored_02", 0.177828, 1, 60};
-		soundGlassArmored3[] = {"ca\sounds\weapons\hits\hit_glass_armored_03", 0.177828, 1, 60};
-		soundGlassArmored4[] = {"ca\sounds\weapons\hits\hit_glass_armored_04", 0.177828, 1, 60};
-		soundGlassArmored5[] = {"ca\sounds\weapons\hits\hit_glass_armored_05", 0.177828, 1, 60};
-		soundGlassArmored6[] = {"ca\sounds\weapons\hits\hit_glass_armored_06", 0.177828, 1, 60};
-		soundGlassArmored7[] = {"ca\sounds\weapons\hits\hit_glass_armored_07", 0.177828, 1, 60};
-		soundGlassArmored8[] = {"ca\sounds\weapons\hits\hit_glass_armored_08", 0.177828, 1, 60};
-		soundVehiclePlate1[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_01", 0.562341, 1, 90};
-		soundVehiclePlate2[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_02", 0.562341, 1, 90};
-		soundVehiclePlate3[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_03", 0.562341, 1, 90};
-		soundVehiclePlate4[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_04", 0.562341, 1, 90};
-		soundVehiclePlate5[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_05", 0.562341, 1, 90};
-		soundVehiclePlate6[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_06", 0.562341, 1, 90};
-		soundVehiclePlate7[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_07", 0.562341, 1, 90};
-		soundVehiclePlate8[] = {"ca\sounds\weapons\hits\hit_vehicle_plate_08", 0.562341, 1, 90};
-		soundVehiclePlate9[] = {"ca\sounds\weapons\hits\rico_hit_vehicle_plate_01", 0.562341, 1, 90};
-		soundVehiclePlate10[] = {"ca\sounds\weapons\hits\rico_hit_vehicle_plate_02", 0.562341, 1, 90};
-		soundVehiclePlate11[] = {"ca\sounds\weapons\hits\rico_hit_vehicle_plate_03", 0.562341, 1, 90};
-		soundVehiclePlate12[] = {"ca\sounds\weapons\hits\rico_hit_vehicle_plate_04", 0.562341, 1, 90};
-		soundWood1[] = {"ca\sounds\weapons\hits\hit_wood_01", 0.316228, 1, 60};
-		soundWood2[] = {"ca\sounds\weapons\hits\hit_wood_02", 0.316228, 1, 60};
-		soundWood3[] = {"ca\sounds\weapons\hits\hit_wood_03", 0.316228, 1, 60};
-		soundWood4[] = {"ca\sounds\weapons\hits\hit_wood_04", 0.316228, 1, 60};
-		soundWood5[] = {"ca\sounds\weapons\hits\hit_wood_05", 0.316228, 1, 60};
-		soundWood6[] = {"ca\sounds\weapons\hits\hit_wood_06", 0.316228, 1, 60};
-		soundWood7[] = {"ca\sounds\weapons\hits\hit_wood_07", 0.316228, 1, 60};
-		soundWood8[] = {"ca\sounds\weapons\hits\hit_wood_08", 0.316228, 1, 60};
-		soundWood9[] = {"ca\sounds\weapons\hits\rico_hit_wood_01", 0.316228, 1, 60};
-		soundWood10[] = {"ca\sounds\weapons\hits\rico_hit_wood_02", 0.316228, 1, 60};
-		soundWood11[] = {"ca\sounds\weapons\hits\rico_hit_wood_03", 0.316228, 1, 60};
-		soundWood12[] = {"ca\sounds\weapons\hits\rico_hit_wood_04", 0.316228, 1, 60};
-		soundHitBody1[] = {"ca\sounds\weapons\hits\hit_body_01", 0.0177828, 1, 50};
-		soundHitBody2[] = {"ca\sounds\weapons\hits\hit_body_02", 0.0177828, 1, 50};
-		soundHitBody3[] = {"ca\sounds\weapons\hits\hit_body_03", 0.0177828, 1, 50};
-		soundHitBody4[] = {"ca\sounds\weapons\hits\hit_body_04", 0.0177828, 1, 50};
-		soundHitBody5[] = {"ca\sounds\weapons\hits\hit_body_05", 0.0177828, 1, 50};
-		soundHitBody6[] = {"ca\sounds\weapons\hits\hit_body_06", 0.0177828, 1, 50};
-		soundHitBody7[] = {"ca\sounds\weapons\hits\hit_body_07", 0.0177828, 1, 50};
-		soundHitBody8[] = {"ca\sounds\weapons\hits\hit_body_08", 0.0177828, 1, 50};
-		soundHitBody9[] = {"ca\sounds\weapons\hits\hit_body_09", 0.0177828, 1, 50};
-		soundHitBody10[] = {"ca\sounds\weapons\hits\hit_body_10", 0.0177828, 1, 50};
-		soundHitBody11[] = {"ca\sounds\weapons\hits\hit_body_11", 0.0177828, 1, 50};
-		soundHitBody12[] = {"ca\sounds\weapons\hits\hit_body_12", 0.0177828, 1, 50};
-		soundHitBody13[] = {"ca\sounds\weapons\hits\hit_body_13", 0.0177828, 1, 50};
-		soundMetalPlate1[] = {"ca\sounds\weapons\hits\hit_metalplate_01", 0.562341, 1, 90};
-		soundMetalPlate2[] = {"ca\sounds\weapons\hits\hit_metalplate_02", 0.562341, 1, 90};
-		soundMetalPlate3[] = {"ca\sounds\weapons\hits\hit_metalplate_03", 0.562341, 1, 90};
-		soundMetalPlate4[] = {"ca\sounds\weapons\hits\hit_metalplate_04", 0.562341, 1, 90};
-		soundMetalPlate5[] = {"ca\sounds\weapons\hits\hit_metalplate_05", 0.562341, 1, 90};
-		soundMetalPlate6[] = {"ca\sounds\weapons\hits\hit_metalplate_06", 0.562341, 1, 90};
-		soundMetalPlate7[] = {"ca\sounds\weapons\hits\hit_metalplate_07", 0.562341, 1, 90};
-		soundMetalPlate8[] = {"ca\sounds\weapons\hits\hit_metalplate_08", 0.562341, 1, 90};
-		soundMetalPlate9[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_01", 0.562341, 1, 90};
-		soundMetalPlate10[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_02", 0.562341, 1, 90};
-		soundMetalPlate11[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_03", 0.562341, 1, 90};
-		soundMetalPlate12[] = {"ca\sounds\weapons\hits\rico_hit_metalplate_04", 0.562341, 1, 90};
-		soundHitBuilding1[] = {"ca\sounds\weapons\hits\hit_wall_01", 0.251189, 1, 60};
-		soundHitBuilding2[] = {"ca\sounds\weapons\hits\hit_wall_02", 0.251189, 1, 60};
-		soundHitBuilding3[] = {"ca\sounds\weapons\hits\hit_wall_03", 0.251189, 1, 60};
-		soundHitBuilding4[] = {"ca\sounds\weapons\hits\hit_wall_04", 0.251189, 1, 60};
-		soundHitBuilding5[] = {"ca\sounds\weapons\hits\hit_wall_05", 0.251189, 1, 60};
-		soundHitBuilding6[] = {"ca\sounds\weapons\hits\rico_hit_wall_01", 0.251189, 1, 60};
-		soundHitBuilding7[] = {"ca\sounds\weapons\hits\rico_hit_wall_02", 0.251189, 1, 60};
-		soundHitBuilding8[] = {"ca\sounds\weapons\hits\rico_hit_wall_03", 0.251189, 1, 60};
-		soundHitBuilding9[] = {"ca\sounds\weapons\hits\rico_hit_wall_04", 0.251189, 1, 60};
-		soundHitBuilding10[] = {"ca\sounds\weapons\hits\rico_hit_wall_05", 0.251189, 1, 60};
-		soundHitFoliage1[] = {"ca\sounds\weapons\hits\hit_grass_01", 0.177828, 1, 50};
-		soundHitFoliage2[] = {"ca\sounds\weapons\hits\hit_grass_02", 0.177828, 1, 50};
-		soundHitFoliage3[] = {"ca\sounds\weapons\hits\hit_grass_03", 0.177828, 1, 50};
-		soundHitFoliage4[] = {"ca\sounds\weapons\hits\hit_grass_04", 0.177828, 1, 50};
-		soundPlastic1[] = {"ca\sounds\weapons\hits\hit_Rubber_01", 0.177828, 1, 50};
-		soundPlastic2[] = {"ca\sounds\weapons\hits\hit_Rubber_02", 0.177828, 1, 50};
-		soundConcrete1[] = {"ca\sounds\weapons\hits\hit_concrete_01", 0.177828, 1, 70};
-		soundConcrete2[] = {"ca\sounds\weapons\hits\hit_concrete_02", 0.177828, 1, 70};
-		soundConcrete3[] = {"ca\sounds\weapons\hits\hit_concrete_03", 0.177828, 1, 70};
-		soundConcrete4[] = {"ca\sounds\weapons\hits\hit_concrete_04", 0.177828, 1, 70};
-		soundConcrete5[] = {"ca\sounds\weapons\hits\rico_hit_concrete_01", 0.177828, 1, 70};
-		soundConcrete6[] = {"ca\sounds\weapons\hits\rico_hit_concrete_02", 0.177828, 1, 70};
-		soundConcrete7[] = {"ca\sounds\weapons\hits\rico_hit_concrete_03", 0.177828, 1, 70};
-		soundConcrete8[] = {"ca\sounds\weapons\hits\rico_hit_concrete_04", 0.177828, 1, 70};
-		soundRubber1[] = {"ca\sounds\weapons\hits\hit_Rubber_01", 0.316228, 1, 50};
-		soundRubber2[] = {"ca\sounds\weapons\hits\hit_Rubber_02", 0.316228, 1, 50};
-		soundRubber3[] = {"ca\sounds\weapons\hits\hit_Rubber_03", 0.316228, 1, 50};
-		soundRubber4[] = {"ca\sounds\weapons\hits\hit_Rubber_04", 0.316228, 1, 50};
-		soundRubber5[] = {"ca\sounds\weapons\hits\hit_Rubber_05", 0.316228, 1, 50};
-		hitGroundSoft[] = {"soundGroundSoft1", 0.2, "soundGroundSoft2", 0.2, "soundGroundSoft3", 0.1, "soundGroundSoft4", 0.1, "soundGroundSoft5", 0.1, "soundGroundSoft6", 0.1, "soundGroundSoft7", 0.1, "soundGroundSoft8", 0.1};
-		hitGroundHard[] = {"soundGroundHard1", 0.2, "soundGroundHard2", 0.2, "soundGroundHard3", 0.1, "soundGroundHard4", 0.1, "soundGroundHard5", 0.1, "soundGroundHard6", 0.1, "soundGroundHard7", 0.1, "soundGroundHard8", 0.1};
-		hitMan[] = {"soundHitBody1", 0.077, "soundHitBody2", 0.077, "soundHitBody3", 0.077, "soundHitBody4", 0.077, "soundHitBody5", 0.077, "soundHitBody6", 0.077, "soundHitBody7", 0.077, "soundHitBody8", 0.077, "soundHitBody9", 0.077, "soundHitBody10", 0.077, "soundHitBody11", 0.077, "soundHitBody12", 0.077, "soundHitBody13", 0.077};
-		hitArmor[] = {"soundVehiclePlate1", 0.1, "soundVehiclePlate2", 0.1, "soundVehiclePlate3", 0.05, "soundVehiclePlate4", 0.05, "soundVehiclePlate5", 0.1, "soundVehiclePlate6", 0.05, "soundVehiclePlate7", 0.1, "soundVehiclePlate8", 0.1, "soundVehiclePlate9", 0.05, "soundVehiclePlate10", 0.1, "soundVehiclePlate11", 0.1, "soundVehiclePlate12", 0.1};
-		hitIron[] = {"soundIron1", 0.1, "soundIron2", 0.1, "soundIron3", 0.1, "soundIron4", 0.1, "soundIron5", 0.1, "soundIron6", 0.1, "soundIron7", 0.05, "soundIron8", 0.05, "soundIron9", 0.1, "soundIron10", 0.1, "soundIron11", 0.05, "soundIron12", 0.05};
-		hitBuilding[] = {"soundHitBuilding1", 0.1, "soundHitBuilding2", 0.1, "soundHitBuilding3", 0.1, "soundHitBuilding4", 0.1, "soundHitBuilding5", 0.1, "soundHitBuilding6", 0.1, "soundHitBuilding7", 0.1, "soundHitBuilding8", 0.1, "soundHitBuilding9", 0.1, "soundHitBuilding10", 0.1};
-		hitFoliage[] = {"soundHitFoliage1", 0.25, "soundHitFoliage2", 0.25, "soundHitFoliage3", 0.25, "soundHitFoliage4", 0.25};
-		hitWood[] = {"soundWood1", 0.1, "soundWood2", 0.1, "soundWood3", 0.1, "soundWood4", 0.05, "soundWood5", 0.05, "soundWood6", 0.1, "soundWood7", 0.1, "soundWood8", 0.1, "soundWood9", 0.1, "soundWood10", 0.1, "soundWood11", 0.05, "soundWood12", 0.05};
-		hitGlass[] = {"soundGlass1", 0.1, "soundGlass2", 0.1, "soundGlass3", 0.1, "soundGlass4", 0.1, "soundGlass5", 0.1, "soundGlass6", 0.1, "soundGlass7", 0.1, "soundGlass8", 0.1, "soundGlass9", 0.1, "soundGlass10", 0.1};
-		hitGlassArmored[] = {"soundGlassArmored1", 0.125, "soundGlassArmored2", 0.125, "soundGlassArmored3", 0.125, "soundGlassArmored4", 0.125, "soundGlassArmored5", 0.125, "soundGlassArmored6", 0.125, "soundGlassArmored7", 0.125, "soundGlassArmored8", 0.125};
-		hitConcrete[] = {"soundConcrete1", 0.2, "soundConcrete2", 0.2, "soundConcrete3", 0.2, "soundConcrete4", 0.05, "soundConcrete5", 0.05, "soundConcrete6", 0.1, "soundConcrete7", 0.1, "soundConcrete8", 0.1};
-		hitRubber[] = {"soundRubber1", 0.2, "soundRubber2", 0.2, "soundRubber3", 0.2, "soundRubber4", 0.2, "soundRubber5", 0.2};
-		hitPlastic[] = {"soundPlastic1", 0.5, "soundPlastic2", 0.5};
-		hitDefault[] = {"soundDefault1", 0.2, "soundDefault2", 0.2, "soundDefault3", 0.1, "soundDefault4", 0.1, "soundDefault5", 0.1, "soundDefault6", 0.1, "soundDefault7", 0.1, "soundDefault8", 0.1};
-		hitMetal[] = {"soundMetal1", 0.1, "soundMetal2", 0.1, "soundMetal3", 0.1, "soundMetal4", 0.05, "soundMetal5", 0.1, "soundMetal6", 0.1, "soundMetal7", 0.05, "soundMetal8", 0.1, "soundMetal9", 0.05, "soundMetal10", 0.05, "soundMetal11", 0.1, "soundMetal12", 0.1};
-		hitMetalplate[] = {"soundMetalPlate1", 0.1, "soundMetalPlate2", 0.1, "soundMetalPlate3", 0.1, "soundMetalPlate4", 0.05, "soundMetalPlate5", 0.05, "soundMetalPlate6", 0.05, "soundMetalPlate7", 0.1, "soundMetalPlate8", 0.1, "soundMetalPlate9", 0.1, "soundMetalPlate10", 0.1, "soundMetalPlate11", 0.1, "soundMetalPlate12", 0.05};
+		caliber = 0.22;
+		visibleFireTime = 0;
+		maxControlRange = 1;
 		cost = 0.01;
 		tracerColor[] = {0, 0, 0, 0};
 		tracerColorR[] = {0, 0, 0, 0};
-		typicalSpeed = 50;
 		deflecting = 0;
 		explosionEffects = "ImpactBlood";
 		craterEffects = "ImpactEffectsBlood";
-		model = "\ca\Weapons\shell";
-		caliber = 0.22;
+		model = "\a3\weapons_f\Ammo\shell";
 	};
 	
 	class Hatchet_Swing_Ammo : Melee {
-		hit = 9;
+		hit = 12;
 		simulation = "shotBullet";
+		typicalSpeed = 70;
+		explosive = "false";
+		simulationStep = 0.001;
+		timeToLive = 0.05;
+		soundHit[] = {"", 3.16228e-005, 1};
+		soundEngine[] = {"", 0.0001, 4};
+		
+		class Medical {
+			InstantBleeding = 1;
+			MedicalState = 3;
+			MedicalChance = 80;
+			BleedingLevel = 3;
+			BleedingChance = 50;
+			Infection = 0;
+			InfectionChance = 0;
+			Knockout = 0;
+			KnockoutChance = 0;
+			scale = 0;
+		};
 	};
 	
 	class Crowbar_Swing_Ammo : Melee {

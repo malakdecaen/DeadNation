@@ -23,7 +23,7 @@ if (_canLoot) then {
 
 	//if (_rnd < _zombieChance) then {
 		
-		_noPlayerNear = (count ((getPosATL _obj) nearEntities ["CAManBase",30])) == 0;
+		_noPlayerNear = (count ((getPosATL _obj) nearEntities ["CAManBase",50])) == 0;
 		
 		if (_noPlayerNear) then {
 		
@@ -53,7 +53,7 @@ if (_canLoot) then {
 			if (_rnd < _zombieChance) then {
 				_iPos = _obj modelToWorld _x;
 				_nearBy = {alive _x} count nearestObjects [_iPos, ["zZombie_Base"],1] > 0;
-				_nearByPlayer = ({isPlayer _x} count (_iPos nearEntities ["CAManBase",30])) > 0;
+				_nearByPlayer = ({isPlayer _x} count (_iPos nearEntities ["CAManBase",50])) > 0;
 				//diag_log ("BUILDING: " + _type + " / " + str(_nearBy) + " / " + str(_nearByPlayer));
 				if (!_nearByPlayer and !_nearBy) then {
 					[_iPos,true,_unitTypes] call zombie_generate;

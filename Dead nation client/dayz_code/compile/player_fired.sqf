@@ -15,9 +15,7 @@ dayz_firedCooldown = time;
 // Color in the combat icon
 dayz_combat = 1;
 
-if (_ammo isKindOf "Melee") exitWith {
-	_unit playActionNow "GestureSwing";
-};
+if(_ammo isKindOf "Melee")exitWith{_unit playActionNow "GestureSwing";};
 
 //Smoke Grenade
 if (_ammo isKindOf "SmokeShell") then {

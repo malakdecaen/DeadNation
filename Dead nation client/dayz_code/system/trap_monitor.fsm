@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Trap">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, deadnation Trap">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-450.000000,-200.000000,-350.000000,-150.000000,0.000000,"init"};
@@ -32,7 +32,7 @@ window[] = {2,-1,-1,-32000,-32000,1145,315,1286,203,3,972};
 *//*%FSM</HEAD>*/
 class FSM
 {
-  fsmName = "DayZ Trap";
+  fsmName = "deadnation Trap";
   class States
   {
     /*%FSM<STATE "init">*/

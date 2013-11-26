@@ -72,7 +72,7 @@ if (["grass",dayz_surfaceType] call fnc_inString) then {
 	_initial = _initial * 0.75;
 	_scaleMvmt = _scaleMvmt - 0.05;
 } else {
-	if (["forest",dayz_surfaceType] call fnc_inString) then {
+	if (["GdtForestPine",dayz_surfaceType] call fnc_inString) then {
 		_initial = _initial * 0.5;
 		_scaleMvmt = _scaleMvmt - 0.1;
 	} else {

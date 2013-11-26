@@ -2,7 +2,7 @@ private ["_control","_button","_parent","_group","_pos","_item","_conf","_name",
 disableSerialization;
 _control = 	_this select 0;
 _button =	_this select 1;
-_parent = 	findDisplay 106;
+_parent = 	findDisplay 602;
 
 //if ((time - dayzClickTime) < 1) exitWith {};
 

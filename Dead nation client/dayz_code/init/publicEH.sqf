@@ -27,6 +27,7 @@ if (isServer) then {
 	"dayzDiscoRem"		addPublicVariableEventHandler {dayz_disco = dayz_disco - [(_this select 1)];};
 	"dayzPlayerSave"	addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerSync;};
 	"dayzPublishObj"	addPublicVariableEventHandler {(_this select 1) call server_publishObj};
+	"dayzPublishObj2"	addPublicVariableEventHandler {(_this select 1) call server_publishObj2};
 	"dayzUpdateVehicle" addPublicVariableEventHandler {_id = (_this select 1) spawn server_updateObject};
 	"dayzLogin"			addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerLogin};
 	"dayzLogin2"		addPublicVariableEventHandler {(_this select 1) call server_playerSetup};

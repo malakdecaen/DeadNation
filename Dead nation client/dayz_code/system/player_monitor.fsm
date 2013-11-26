@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, dayz Player Monitor">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"init"};
@@ -110,15 +110,15 @@ window[] = {2,-1,-1,-1,-1,980,200,1572,200,3,447};
 *//*%FSM</HEAD>*/
 class FSM
 {
-  fsmName = "DayZ Player Monitor";
+  fsmName = "dayz Player Monitor";
   class States
   {
     /*%FSM<STATE "init">*/
     class init
     {
       name = "init";
-      init = /*%FSM<STATEINIT""">*/"dayz_versionNo = getText(configFile >> ""CfgMods"" >> ""DayZ"" >> ""version"");" \n
-       "diag_log (""DAYZ: CLIENT IS RUNNING DAYZ_CODE "" + str(dayz_versionNo));" \n
+      init = /*%FSM<STATEINIT""">*/"dayz_versionNo = getText(configFile >> ""CfgMods"" >> ""dayz"" >> ""version"");" \n
+       "diag_log (""dayz: CLIENT IS RUNNING DAYZ_CODE "" + str(dayz_versionNo));" \n
        "" \n
        "0 fadeSound 0;" \n
        "//player setPosATL [-2148,6655,0];" \n
@@ -682,7 +682,7 @@ class FSM
        "dayz_lastMeal =			(_lastAte * 60);" \n
        "dayz_lastDrink =		(_lastDrank * 60);" \n
        "dayz_zombiesLocal = 	0;			//Used to record how many local zombies being tracked" \n
-       "dayz_skilllevel = _days;  //total alive dayz" \n
+       "dayz_skilllevel = _days;  //total alive deadnation" \n
        "" \n
        "//load in medical details" \n
        "" \n
@@ -989,7 +989,6 @@ class FSM
        "" \n
        "//Add core tools" \n
        "player addWeapon ""Loot"";" \n
-       "player addWeapon ""Flare"";" \n
        "" \n
        "//load in medical details" \n
        "" \n

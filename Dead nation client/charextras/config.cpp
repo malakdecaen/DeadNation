@@ -86,7 +86,7 @@ class CfgFaces {
 			texture = "\CharExtras\textures\m_persian_01_co.paa";
 			head = "PersianHead_A3";
 			identityTypes[] = {"Head_OO"};
-			material = "\CharExtras\textures\m_persian_01_co.paa";
+			//material = "\CharExtras\textures\m_persian_01_co.paa";
 			disabled = 0;
 		};
 		
@@ -95,7 +95,7 @@ class CfgFaces {
 			texture = "\CharExtras\textures\test_prototypehead_co.paa";
 			head = "PersianHead_A3";
 			identityTypes[] = {"Head_O1"};
-			material = "\CharExtras\textures\test_prototypehead_co.paa";
+			//material = "\CharExtras\textures\test_prototypehead_co.paa";
 			disabled = 0;
 		};
 		
@@ -104,7 +104,7 @@ class CfgFaces {
 			texture = "\CharExtras\textures\m_white_02_co.paa";
 			head = "PersianHead_A3";
 			identityTypes[] = {"Head_O2"};
-			material = "\CharExtras\textures\m_white_02_co.paa";
+			//material = "\CharExtras\textures\m_white_02_co.paa";
 			disabled = 0;
 		};
 	};

@@ -6,12 +6,12 @@ return all player magazines with ammo count
 private ["_dialog","_control","_magazineArray","_item","_val","_max","_created"];
 disableSerialization;
 disableUserInput true;
-_dialog = findDisplay 106;
+_dialog = findDisplay 602;
 _created = false;
 if ( isNull _dialog ) then { 
 	//startLoadingScreen [""];
 	//createGearDialog [player, "RscDisplayGear"]; 
-	_dialog = findDisplay 106;
+	_dialog = findDisplay 602;
 	_created = true;
 };
 

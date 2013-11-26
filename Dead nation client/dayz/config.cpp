@@ -52669,17 +52669,19 @@ class CfgVehicles {
 		fsmDanger = "";
 		fsmFormation = "";
 		zombieLoot = "civilian";
+		uniformclass = "";
 		moves = "CfgMovesZombie";
 		isMan = false;
 		weapons[] = {};
 		magazines[] = {};
+		speaker = "NoVoice";
 		sensitivity = 6;	// sensor sensitivity
 		sensitivityEar = 4;
 		identityTypes[] = {"Head_O1", "Head_O2", "Head_O3"};
 		
 		class Eventhandlers {
 			init = "_this call zombie_initialize;";
-			local = "diag_log ('Locality Event');if(_this select 1) then {[(position (_this select 0)),(_this select 0),true] execFSM '\z\AddOns\dayz_code\system\zombie_agent.fsm'};";
+			local = "if(_this select 1) then {[(position (_this select 0)),(_this select 0),true] execFSM '\z\AddOns\dayz_code\system\zombie_agent.fsm'};";
 		};
 		
 		class HitPoints {
@@ -52814,7 +52816,7 @@ class CfgVehicles {
 		hiddenSelections[] = {"Camo"};
 		uniformClass = "U_C_Polo";
 		hiddenSelectionsTextures[] = {"\charextras\textures\c_poloshirtpants_1_co.paa"};
-		moves = "CfgMovesZombie"; 
+		moves = "CfgMovesZombie2"; 
 		zombieLoot = "civilian";
 		head = "MaleAfricanHead_01";
 		identityTypes[] = {"Head_O2"};		
@@ -52838,7 +52840,7 @@ class CfgVehicles {
 		uniformClass = "U_OrestesDN";
 		hiddenSelections[] = {"Camo"};
 		hiddenSelectionsTextures[] = {"\charextras\textures\orestes_co.paa"};
-		moves = "CfgMovesZombie"; 
+		moves = "CfgMovesZombie2"; 
 		head = "MaleAfricanHead_01";
 		identityTypes[] = {"Head_O2"};
 		linkedItems[] = {};
@@ -52856,7 +52858,7 @@ class CfgVehicles {
 		uniformClass = "U_C_Hunter";
 		hiddenSelections[] = {"Camo"};
 		hiddenSelectionsTextures[] = {"\charextras\textures\hunter_bushman_co.paa"};
-		moves = "CfgMovesZombie"; 
+		moves = "CfgMovesZombie2"; 
 		head = "MaleAfricanHead_01";
 		identityTypes[] = {"Head_O1"};
 		linkedItems[] = {"H_Booniehat_grn", "ItemWatch"};
@@ -52871,7 +52873,7 @@ class CfgVehicles {
 		uniformClass = "U_C_Coverall_grey";
 		hiddenSelections[] = {"Camo"};
 		hiddenSelectionsTextures[] = {"\charextras\textures\clothing1_co.paa"};
-		moves = "CfgMovesZombie"; 
+		moves = "CfgMovesZombie2"; 
 		head = "MaleAfricanHead_01";
 		identityTypes[] = {"Head_OO"};
 		linkeditems[] = {"V_Rangemaster_belt", "H_HelmetB_light"};
@@ -52900,7 +52902,7 @@ class CfgVehicles {
 		uniformClass = "U_C_Coverall_grey";
 		hiddenSelections[] = {"Camo"};
 		hiddenSelectionsTextures[] = {"\charextras\textures\coveralls_urbancamo_co.paa"};
-		moves = "CfgMovesZombie"; 
+		moves = "CfgMovesZombie2"; 
 		head = "MaleAfricanHead_01";
 		identityTypes[] = {"Head_O2"};
 		linkeditems[] = {"V_Rangemaster_belt"};
@@ -52925,7 +52927,7 @@ class CfgVehicles {
 	
 	class Rubbish1 : Strategic {
 		scope = public;
-		model = "\CA\misc\garbage_paleta";
+		//model = "\CA\misc\garbage_paleta";
 		mapSize = 2;
 		displayName = "Garbage1";
 		vehicleClass = "Survival";
@@ -52933,7 +52935,7 @@ class CfgVehicles {
 	
 	class Rubbish2 : Strategic {
 		scope = public;
-		model = "\CA\misc\garbage_misc";
+		//model = "\CA\misc\garbage_misc";
 		mapSize = 2;
 		displayName = "Garbage2";
 		vehicleClass = "Survival";
@@ -52941,7 +52943,7 @@ class CfgVehicles {
 	
 	class Rubbish3 : Strategic {
 		scope = public;
-		model = "\CA\misc\ground_garbage_square5";
+		//model = "\CA\misc\ground_garbage_square5";
 		mapSize = 2;
 		displayName = "Garbage3";
 		vehicleClass = "Survival";
@@ -52949,7 +52951,7 @@ class CfgVehicles {
 	
 	class Rubbish4 : Strategic {
 		scope = public;
-		model = "\CA\misc\ground_garbage_square3";
+		//model = "\CA\misc\ground_garbage_square3";
 		mapSize = 2;
 		displayName = "Garbage4";
 		vehicleClass = "Survival";
@@ -52957,7 +52959,7 @@ class CfgVehicles {
 	
 	class Rubbish5 : Strategic {
 		scope = public;
-		model = "\CA\misc\junkpile";
+		//model = "\CA\misc\junkpile";
 		mapSize = 2;
 		displayName = "Garbage5";
 		vehicleClass = "Survival";

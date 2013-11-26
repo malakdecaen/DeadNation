@@ -263,7 +263,7 @@ if (!isDedicated) then {
 		if (_dikCode in (actionKeys "GetOver")) then {
 			if (!r_fracture_legs and (time - dayz_lastCheckBit > 1.5)) then {
 				_inBuilding = [player] call fnc_isInsideBuilding;
-				_nearbyObjects = nearestObjects[getPosATL player, ["garage_repart","TentStorage", "Hedgehog_DZ", "Sandbag1_DZ","TrapBear","Wire_cat1"], 4];
+				_nearbyObjects = nearestObjects[getPosATL player, ["garage_repart","TentStorage", "Hedgehog_DZ", "Sandbag1_DZ","BearTrap_DZ","Wire_cat1"], 4];
 				
 					dayz_lastCheckBit = time;
 					call player_CombatRoll;
@@ -276,6 +276,11 @@ if (!isDedicated) then {
 		{
 			_nill = execvm "\z\addons\dayz_code\actions\playerstats.sqf";
 		};
+		if ((_dikCode in actionKeys "Gear") and (vehicle player != player) && !dialog) then {
+			createGearDialog [player, "RscDisplayGear"];
+			_handled = true;
+		};
+
 		if (_dikCode in actionKeys "MoveLeft") then {r_interrupt = true};
 		if (_dikCode in actionKeys "MoveRight") then {r_interrupt = true};
 		if (_dikCode in actionKeys "MoveForward") then {r_interrupt = true};
@@ -353,7 +358,7 @@ if (!isDedicated) then {
 		private["_control","_parent","_menu"];
 		disableSerialization;
 		_control = 	_this select 0;
-		_parent = 	findDisplay 106;
+		_parent = 	findDisplay 602;
 		if (!(_this select 3)) then {
 			for "_i" from 0 to 9 do {
 				_menu = _parent displayCtrl (1600 + _i);
@@ -371,7 +376,7 @@ if (!isDedicated) then {
 	gear_ui_init = {
 		private["_control","_parent","_menu","_dspl","_grpPos"];
 		disableSerialization;
-		_parent = findDisplay 106;
+		_parent = findDisplay 602;
 		_control = 	_parent displayCtrl 6902;
 		for "_i" from 0 to 9 do {
 			_menu = _parent displayCtrl (1600 + _i);
@@ -406,17 +411,22 @@ if (!isDedicated) then {
 			dayz_heartBeat = false;
 		};
 	};
-	dayz_meleeMagazineCheck = {
-		private["_meleeNum","_magType","_wpnType"];
-		_wpnType = _this;
-		_magType = 	([] + getArray (configFile >> "CfgWeapons" >> _wpnType >> "magazines")) select 0;
-		_meleeNum = ({_x == _magType} count magazines player);
-		if (_meleeNum < 1) then {
+	 dayz_meleeMagazineCheck = {
+                private["_meleeNum","_magType","_wpnType"];
+                _wpnType = _this;
+                _magType =         ([] + getArray (configFile >> "CfgWeapons" >> _wpnType >> "magazines")) select 0;
+                _meleeNum = ({_x == _magType} count magazines player);
+                if (_meleeNum < 1) then {
             if (player hasWeapon _wpnType) then {
-                player addMagazine _magType;
-			};
-		};
-	};
+                                _loadedSwingArr = primaryWeaponMagazine player;
+                                _loadedSwing = "";
+                                if (count _loadedSwingArr > 0) then { _loadedSwing = _loadedSwingArr select 0; };
+                                if (_loadedSwing != _magType) then {
+                                        player addMagazine _magType;
+                                };
+                        };
+                };
+        };
 	dayz_originalPlayer =		player;
     [] execVM "\z\addons\dayz_code\group\keymonitor.sqf";
 };

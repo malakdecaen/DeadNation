@@ -54,6 +54,7 @@ zmbKneelHit1.rtm - 0.136364, frames 176
 zmbKneelHit2.rtm - 0.193548, frames 124
 
 ==============================================
+Czm2AmovPercMalrDf_Long.rtm - 0.125564, frames 72
 
 zombie1_attack.rtm - 0.357143, frames 84
 

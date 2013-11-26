@@ -76,7 +76,7 @@
 // Listbox styles 
 #define LB_TEXTURES 0x10 
 #define LB_MULTI 0x20 
-#define FontM "Zeppelin32"
+#define FontM "PuristaMedium"
 
 #define true 1
 #define false 1
@@ -103,7 +103,7 @@ class w_RscStructuredText
 	colorText[] = {0.8784,0.8471,0.651,1};
 	class Attributes
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		color = "#e0d8a6";
 		align = "center";
 		shadow = 1;
@@ -162,14 +162,14 @@ class w_RscListBox
     colorBackground[] = {1,1,1,1};
     colorSelectBackground[] = {0.40, 0.43, 0.28, 0.5};
     colorScrollbar[] = {0.2, 0.2, 0.2, 1};
-    arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
-    arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+    //arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+    //arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
     wholeHeight = 0.45;
     rowHeight = 0.04;
     color[] = {0.7, 0.7, 0.7, 1};
     colorActive[] = {0,0,0,1};
     colorDisabled[] = {0,0,0,0.3};
-    font = "Zeppelin32";
+    font = "PuristaMedium";
     sizeEx = 0.023;
     soundSelect[] = {"",0.1,1};
     soundExpand[] = {"",0.1,1};
@@ -184,10 +184,10 @@ class w_RscListBox
 		color[] = {1, 1, 1, 1};
         colorActive[] = {1, 1, 1, 1};
         colorDisabled[] = {1, 1, 1, 1};
-        thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
-        arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
-        arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
-        border = "\ca\ui\data\ui_border_scroll_ca.paa";
+        //thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+        //arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+        //arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+        //border = "\ca\ui\data\ui_border_scroll_ca.paa";
     };
 };
 
@@ -204,14 +204,14 @@ class w_Rsclist
         colorBackground[] = {1,1,1,1};
         colorSelectBackground[] = {0.40, 0.43, 0.28, 0.5};
         colorScrollbar[] = {0.2, 0.2, 0.2, 1};
-        arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
-        arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+        //arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+        //arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
         wholeHeight = 0.45;
         rowHeight = 0.04;
         color[] = {0.7, 0.7, 0.7, 1};
         colorActive[] = {0,0,0,1};
         colorDisabled[] = {0,0,0,0.3};
-        font = "Zeppelin32";
+        font = "PuristaMedium";
         sizeEx = 0.023;
         soundSelect[] = {"",0.1,1};
         soundExpand[] = {"",0.1,1};
@@ -226,10 +226,10 @@ class w_Rsclist
                 color[] = {1, 1, 1, 1};
                 colorActive[] = {1, 1, 1, 1};
                 colorDisabled[] = {1, 1, 1, 1};
-                thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
-                arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
-                arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
-                border = "\ca\ui\data\ui_border_scroll_ca.paa";
+                //thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+                //arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+                //arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+                //border = "\ca\ui\data\ui_border_scroll_ca.paa";
         };
 };
 
@@ -298,30 +298,30 @@ class w_RscButtonBase {
 		
 	};
 	
-	animTextureNormal = "\ca\ui\data\ui_button_normal_ca.paa";
-	animTextureDisabled = "\ca\ui\data\ui_button_disabled_ca.paa";
-	animTextureOver = "\ca\ui\data\ui_button_over_ca.paa";
-	animTextureFocused = "\ca\ui\data\ui_button_focus_ca.01.paa";
-	animTexturePressed = "\ca\ui\data\ui_button_down_ca.paa";
-	animTextureDefault = "\ca\ui\data\ui_button_default_ca.paa";
+	//animTextureNormal = "\ca\ui\data\ui_button_normal_ca.paa";
+	//animTextureDisabled = "\ca\ui\data\ui_button_disabled_ca.paa";
+	//animTextureOver = "\ca\ui\data\ui_button_over_ca.paa";
+	//animTextureFocused = "\ca\ui\data\ui_button_focus_ca.01.paa";
+	//animTexturePressed = "\ca\ui\data\ui_button_down_ca.paa";
+	//animTextureDefault = "\ca\ui\data\ui_button_default_ca.paa";
 	textureNoShortcut = "";
 	
 	period = 0.4;
-	font = "Zeppelin32";
+	font = "PuristaMedium";
 	size = 0.023;
 	sizeEx = 0.023;
 	text = "";
 	
-	soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.09, 1};
-	soundPush[] = {"\ca\ui\data\sound\new1", 0.09, 1};
-	soundClick[] = {"\ca\ui\data\sound\mouse3", 0.07, 1};
-	soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.09, 1};
+	//soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.09, 1};
+	//soundPush[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	//soundClick[] = {"\ca\ui\data\sound\mouse3", 0.07, 1};
+	//soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.09, 1};
 	
 	action = "";
 	
 	class Attributes {
 	
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
@@ -330,7 +330,7 @@ class w_RscButtonBase {
 	
 	class AttributesImage {
 	
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		
@@ -376,17 +376,17 @@ class w_RscButton : w_RscButtonBase {
 		bottom = -0.005;
 	};
 	
-	animTextureNormal = "\ca\ui\data\igui_button_normal_ca.paa";
-	animTextureDisabled = "\ca\ui\data\igui_button_disabled_ca.paa";
-	animTextureOver = "\ca\ui\data\igui_button_over_ca.paa";
-	animTextureFocused = "\ca\ui\data\igui_button_focus_ca.paa";
-	animTexturePressed = "\ca\ui\data\igui_button_down_ca.paa";
-	animTextureDefault = "\ca\ui\data\igui_button_normal_ca.paa";
-	animTextureNoShortcut = "\ca\ui\data\igui_button_normal_ca.paa";
+	//animTextureNormal = "\ca\ui\data\igui_button_normal_ca.paa";
+	//animTextureDisabled = "\ca\ui\data\igui_button_disabled_ca.paa";
+	//animTextureOver = "\ca\ui\data\igui_button_over_ca.paa";
+	//animTextureFocused = "\ca\ui\data\igui_button_focus_ca.paa";
+	//animTexturePressed = "\ca\ui\data\igui_button_down_ca.paa";
+	//animTextureDefault = "\ca\ui\data\igui_button_normal_ca.paa";
+	//animTextureNoShortcut = "\ca\ui\data\igui_button_normal_ca.paa";
 	
 	class Attributes {
 	
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "center";
 		shadow = "true";
@@ -401,7 +401,7 @@ class RscButton
     idc                       = -1;
     style                     = ST_CENTER;
     colorText[]               = {1, 1, 1, 1};
-    font                      = "Zeppelin32";
+    font                      = "PuristaMedium";
     sizeEx                    = 0.025;
     soundPush[]               = {"", 0.2, 1};
     soundClick[]              = {"ui\ui_ok", 0.2, 1};
@@ -471,20 +471,20 @@ class w_RscCombo {
 			0.950000, 0.950000, 0.950000, 1
 	};
 	period = 1;
-	thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
-	arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
-	arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
-	border = "\ca\ui\data\ui_border_scroll_ca.paa";
+	//thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+	//arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+	//arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+	//border = "\ca\ui\data\ui_border_scroll_ca.paa";
 
 		class ScrollBar
 		{
 			color[] = {1, 1, 1, 1};
 			colorActive[] = {1, 1, 1, 1};
 			colorDisabled[] = {1, 1, 1, 1};
-			thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
-			arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
-			arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
-			border = "\ca\ui\data\ui_border_scroll_ca.paa";
+			//thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+			//arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+			//arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+			//border = "\ca\ui\data\ui_border_scroll_ca.paa";
 		};
 	
 };
@@ -511,19 +511,19 @@ class w_RscHTML
 
 	class H1
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		fontBold = "Zeppelin33";
 		sizeEx = 0.024740;
 	};
 	class H2
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		fontBold = "Zeppelin33";
 		sizeEx = 0.028646;
 	};
 	class H3
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		fontBold = "Zeppelin33";
 		sizeEx = 0.028646;
 	};
@@ -535,22 +535,22 @@ class w_RscHTML
 	};
 	class H5
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		fontBold = "Zeppelin33";
 		sizeEx = 0.020833;
 	};
 	class H6
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		fontBold = "Zeppelin33";
 		sizeEx = 0.020833;
 	};
 	class P
 	{
-		font = "Zeppelin32";
+		font = "PuristaMedium";
 		fontBold = "Zeppelin33";
 		sizeEx = 0.020833;
 	};
-	prevPage = "\ca\ui\data\arrow_left_ca.paa";
-	nextPage = "\ca\ui\data\arrow_right_ca.paa";
+	//prevPage = "\ca\ui\data\arrow_left_ca.paa";
+	//nextPage = "\ca\ui\data\arrow_right_ca.paa";
 };

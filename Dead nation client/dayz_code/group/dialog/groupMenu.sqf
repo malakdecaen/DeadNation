@@ -1,5 +1,4 @@
 //Original file by the guys at [404] Wasteland. Awesome set of scripts.
-//Modified for use in DayZA3 Zoombies by Mistad.
 
 #define gDialog 55510
 #define gInviteButton 55511

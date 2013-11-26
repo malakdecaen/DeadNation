@@ -101,7 +101,7 @@ class RscDisplayGameOptions
 		{
 			x = 0.159803;
 			y = "(0.420549 + 4*0.069854)";
-			text = "DayZ UI:";
+			text = "deadnation UI:";
 		};
 		class CA_ValueUIDisplay: RscXListBox
 		{
@@ -141,7 +141,7 @@ class RscDisplayMain : RscStandardDisplay
 		class DAYZ_Version : CA_Version
 		{
 			idc = -1;
-			text = "Dead Nation [DayZA3 - Altis] 1.5.5";
+			text = "Dead Nation [DayZ - Altis] 1.7.2";
 			y = "(SafeZoneH + SafeZoneY) - (1 - 0.95)";
 		};
 	/*
@@ -597,7 +597,8 @@ class RscDisplayInventory {
 			y = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "12 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "23 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			colorBackground[] = {0.05, 0.05, 0.05, 0.7};
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};			
 		};
 		
 		class CA_PlayerBackground : RscText {
@@ -606,7 +607,8 @@ class RscDisplayInventory {
 			y = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "24.4 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "22 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			colorBackground[] = {0.05, 0.05, 0.05, 0.7};
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class TitleBackground : RscText {
@@ -615,7 +617,8 @@ class RscDisplayInventory {
 			y = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "24.4 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			colorBackground[] = {0.1, 0.1, 0.1, 1};
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class PlayersName : RscText {
@@ -633,7 +636,8 @@ class RscDisplayInventory {
 			y = "1.25 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "0.6 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "0.6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			colorBackground[] = {1, 1, 1, 0.2};
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class RankPicture : RscPicture {
@@ -665,6 +669,8 @@ class RscDisplayInventory {
 			y = "6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "3 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotPrimaryMuzzle : BackgroundSlotPrimary {
@@ -673,6 +679,8 @@ class RscDisplayInventory {
 			y = "9.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotPrimaryFlashlight : BackgroundSlotPrimary {
@@ -681,6 +689,8 @@ class RscDisplayInventory {
 			y = "9.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotPrimaryOptics : BackgroundSlotPrimary {
@@ -689,6 +699,8 @@ class RscDisplayInventory {
 			y = "9.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotPrimaryMagazine : BackgroundSlotPrimary {
@@ -697,6 +709,8 @@ class RscDisplayInventory {
 			y = "9.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotSecondary : BackgroundSlotPrimary {
@@ -705,6 +719,8 @@ class RscDisplayInventory {
 			y = "11.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "3 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotSecondaryMuzzle : BackgroundSlotPrimary {
@@ -713,6 +729,8 @@ class RscDisplayInventory {
 			y = "14.6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotSecondaryFlashlight : BackgroundSlotPrimary {
@@ -721,6 +739,8 @@ class RscDisplayInventory {
 			y = "14.6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotSecondaryOptics : BackgroundSlotPrimary {
@@ -729,6 +749,8 @@ class RscDisplayInventory {
 			y = "14.6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotSecondaryMagazine : BackgroundSlotPrimary {
@@ -737,6 +759,8 @@ class RscDisplayInventory {
 			y = "14.6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHandgun : BackgroundSlotPrimary {
@@ -745,6 +769,8 @@ class RscDisplayInventory {
 			y = "17 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "3 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHandgunMuzzle : BackgroundSlotPrimary {
@@ -753,6 +779,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHandgunFlashlight : BackgroundSlotPrimary {
@@ -761,6 +789,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHandgunOptics : BackgroundSlotPrimary {
@@ -769,6 +799,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHandgunMagazine : BackgroundSlotPrimary {
@@ -777,6 +809,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHeadgear : BackgroundSlotPrimary {
@@ -785,6 +819,8 @@ class RscDisplayInventory {
 			y = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotGoggles : BackgroundSlotPrimary {
@@ -793,6 +829,8 @@ class RscDisplayInventory {
 			y = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotHMD : BackgroundSlotPrimary {
@@ -801,6 +839,8 @@ class RscDisplayInventory {
 			y = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotBinoculars : BackgroundSlotPrimary {
@@ -809,6 +849,8 @@ class RscDisplayInventory {
 			y = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.9 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2.9 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotMap : BackgroundSlotPrimary {
@@ -817,6 +859,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.12 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotGPS : BackgroundSlotPrimary {
@@ -825,6 +869,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.12 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotCompass : BackgroundSlotPrimary {
@@ -833,6 +879,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.12 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotRadio : BackgroundSlotPrimary {
@@ -841,6 +889,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.12 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class BackgroundSlotWatch : BackgroundSlotPrimary {
@@ -849,6 +899,8 @@ class RscDisplayInventory {
 			y = "20.1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "2.12 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "2 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class ExternalContainerBackground : RscPicture {
@@ -858,6 +910,8 @@ class RscDisplayInventory {
 			y = "3.7 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "18.4 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class PlayerContainerBackground : ExternalContainerBackground {
@@ -866,19 +920,21 @@ class RscDisplayInventory {
 			y = "6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "14 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class GroundTab : RscActiveText {
 			idc = 6321;
-			colorBackgroundSelected[] = {1, 1, 1, 1};
 			colorFocused[] = {1, 1, 1, 0};
 			soundDoubleClick[] = {"", 0.1, 1};
 			color[] = {1, 1, 1, 1};
-			colorBackground[] = {0, 0, 0, 1};
 			x = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "5.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class SoldierTab : GroundTab {
@@ -887,6 +943,8 @@ class RscDisplayInventory {
 			y = "1.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "5.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class GroundContainer : RscListBox {
@@ -896,17 +954,21 @@ class RscDisplayInventory {
 			rowHeight = "2 * 			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
 			canDrag = 1;
 			colorText[] = {1, 1, 1, 1};
-			colorBackground[] = {0, 0, 0, 0};
 			itemBackground[] = {1, 1, 1, 0.1};
 			itemSpacing = 0.001;
 			x = "1.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
 			y = "3.7 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "18.4 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};
+			onMouseButtonDblClick = "hint 'comming soon'";	
 		};
 		
 		class SoldierContainer : GroundContainer {
 			idc = 640;
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class GroundFilter : RscCombo {
@@ -915,6 +977,8 @@ class RscDisplayInventory {
 			y = "2.6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "1 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class GroundLoad : RscProgress {
@@ -934,8 +998,8 @@ class RscDisplayInventory {
 			idc = 610;
 			style = 0x30 + 0x800;
 			color[] = {1, 1, 1, 1};
-			colorBackground[] = {1, 1, 1, 0.1};
-			colorBackgroundSelected[] = {1, 1, 1, 0.1};
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 			colorFocused[] = {0, 0, 0, 0};
 			canDrag = 1;
 			x = "26.6 * 					(			((safezoneW / safezoneH) min 1.2) / 40) + 		(safezoneX + (safezoneW - 					((safezoneW / safezoneH) min 1.2))/2)";
@@ -1185,7 +1249,8 @@ class RscDisplayInventory {
 			y = "2.5 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "3.5 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "3 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
-			colorBackground[] = {1, 1, 1, 0.5};
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};	
 		};
 		
 		class UniformSlot : SlotPrimary {
@@ -1211,6 +1276,9 @@ class RscDisplayInventory {
 			y = "6 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) + 		(safezoneY + (safezoneH - 					(			((safezoneW / safezoneH) min 1.2) / 1.2))/2)";
 			w = "11 * 					(			((safezoneW / safezoneH) min 1.2) / 40)";
 			h = "14 * 					(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};
+			onMouseButtonDblClick = "hint 'comming soon'";	
 		};
 		
 		class VestTab : UniformTab {
@@ -1240,6 +1308,9 @@ class RscDisplayInventory {
 		
 		class VestContainer : UniformContainer {
 			idc = 638;
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};
+			onMouseButtonDblClick = "hint 'comming soon'";	
 		};
 		
 		class BackpackTab : UniformTab {
@@ -1269,6 +1340,9 @@ class RscDisplayInventory {
 		
 		class BackpackContainer : UniformContainer {
 			idc = 619;
+			colorBackground[] = {0.27,0.34,0.47,0.2};
+			colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};
+			onMouseButtonDblClick = "hint 'comming soon'";	
 		};
 		
 		class TotalLoad : GroundLoad {

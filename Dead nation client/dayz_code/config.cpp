@@ -33,14 +33,12 @@ class CfgPatches {
 
 class CfgMods
 {
-	class DayZ
+	class dayz
 	{
-		dir = "DayZ";
+		dir = "dayz";
 		name = "Dead Nation";
-		hidePicture = 0;
-		hideName = 0;
 		action = "http://www.deadnation.eu";
-		version = "1.6.0";
+		version = "1.7.3";
 		hiveVersion = 0.96; //0.93
 	};
 	class DZ_InitWorld
@@ -266,35 +264,14 @@ class CfgSurvival {
 			yield = 1;
 			rawfoodtype = "FoodrabbitRaw";
 		};
-       		class zZombie_base: Default {
-         		yield = 1;
-        		 rawfoodtype = "FoodzombieRaw";
-      		};
-      		class player_base: Default {
-        		yield = 1;
-         	rawfoodtype = "FoodhumanRaw";
-      		};
-      		//A3Fix
-      		class Hen_random_F: Default {
-         	yield = 2;
-         	rawfoodtype = "FoodchickenRaw";
-      		};
-      		class Fin_random_F: Default {
-         	yield = 3;
-         	rawfoodtype = "FoodmeatRaw";
-      		};
-      		class Sheep_random_F: Default {
-         	yield = 4;
-         	rawfoodtype = "FoodmuttonRaw";
-      		};
-      		class Snake_random_F: Default {
-         	yield = 1;
-         	rawfoodtype = "FoodmeatRaw";
-      		};
-      		class Rabbit_F: Default {
-         	yield = 2;
-         	rawfoodtype = "FoodrabbitRaw";
-      		};
+        class zZombie_base: Default {
+            yield = 1;
+            rawfoodtype = "FoodzombieRaw";
+        };
+        class player_base: Default {
+            yield = 1;
+            rawfoodtype = "FoodhumanRaw";
+        };
 	};
 };
 
@@ -356,12 +333,16 @@ class CfgBuildingLoot {
 			{"PartWoodPile","magazine"},
 			{"","unifo"},
 			{"","unifo"},
-			{"","lunette"}
+			{"","lunette"},
+			{"driller","magazine"},
+			{"grinder","magazine"}
 		};
 		itemChance[] =	{
 			0.01,
 			0.05,
 			0.03,
+			0.03,
+			0.13,
 			0.13,
 			0.05,
 			0.05,
@@ -409,24 +390,30 @@ class CfgBuildingLoot {
 			{"PartGeneric","magazine"},
 			{"PartWheel","magazine"},
 			{"PartFueltank","magazine"},
+			{"TrapBear","magazine"},
 			{"PartEngine","magazine"},
 			{"Remington870","weapon"},
 			{"PartGlass","magazine"},
 			{"PartVRotor","magazine"},
 			{"ItemJerrycan","magazine"},
-			{"ItemHatchet","magazine"},
+			{"MeleeHatchet","weapon"},
 			{"Winchester1866","weapon"},
 			{"ItemKnife","magazine"},
 			{"ItemToolbox","magazine"},
 			{"ItemWire","magazine"},
 			{"ItemTankTrap","magazine"},
 			{"","foodt"},
-			{"","foodt"}
+			{"","foodt"},
+			{"metalpart","magazine"},
+			{"woodpart","magazine"}
 		};
 		itemChance[] =	{
 			0.18,
 			0.29,
 			0.04,
+			0.04,
+			0.04,
+			0.09,
 			0.04,
 			0.05,
 			0.05,
@@ -460,14 +447,15 @@ class CfgBuildingLoot {
 			{"","trash"},
 			{"SMG_01_F","weapon"},
 			{"PartWoodPile","magazine"},
-			{"ItemHatchet","magazine"},
+			{"MeleeHatchet","weapon"},
 			{"hgun_P07_F","weapon"},
-			{"ItemMachete","magazine"},
+			{"MeleeMachete","weapon"},
 			{"","foodt"},
 			{"","foodt"},
 			{"ItemWatch","vest"},
 			{"","foodt"},
 			{"ItemMap","vest"},
+			{"TrapBear","magazine"},
 			{"hgun_Rook40_F","weapon"},
 			{"Winchester1866","weapon"},
 			{"ItemFlashlight","weaponNA"},
@@ -489,7 +477,9 @@ class CfgBuildingLoot {
 			{"","trash"},
 			{"hgun_Rook40_F","weapon"},
 			{"Binocular","weaponNA"},
-			{"PartWoodPile","magazine"}
+			{"PartWoodPile","magazine"},
+			{"nails","magazine"},
+			{"Hammer","magazine"}
 		};
 		itemChance[] =	{
 			0.06,
@@ -497,7 +487,10 @@ class CfgBuildingLoot {
 			0.01,
 			0.04,
 			0.03,
+			0.04,
+			0.03,
 			0.22,
+			0.9,
 			0.03,
 			0.11,
 			0.17,
@@ -558,6 +551,7 @@ class CfgBuildingLoot {
 			{"B_Kitbag_BaseDN","backpack"},
 			{"B_Bergen_BaseDN","backpack"}, // 18
 			{"B_AssaultPack_blkDN","backpack"}, // 24
+			{"MeleeMachete","weapon"},
 			{"B_AssaultPack_blkDN","backpack"}, // 24
 			{"B_FieldPack_blkDN","backpack"},
 			{"","foodt"},
@@ -581,6 +575,7 @@ class CfgBuildingLoot {
 			0.05,
 			0.05,
 			0.01,
+			0.02,
 			0.05,
 			0.02,
 			0.02,
@@ -623,6 +618,7 @@ class CfgBuildingLoot {
 			{"","accessprim"},
 			{"","chest"},
 			{"","lunette"},
+			{"ItemRadio","weapon"},
 			{"","unifo"},
 			{"","unifo"},
 			{"arifle_TRG21_ARCO_pointer_F","weapon"},
@@ -639,6 +635,7 @@ class CfgBuildingLoot {
 			0.03,		//{"srifle_GM6_F","weapon"},
 			0.05,		//{"arifle_MX_SW_F","weapon"},
 			0.01,		//{"arifle_SDAR_F","weapon"},
+			0.06,
 			0.06,
 			0.01,		//{"srifle_LRR_F","weapon"},
 			0.03,		//{"srifle_GM6_F","weapon"},
@@ -734,12 +731,14 @@ class CfgBuildingLoot {
 		lootPos[] = {};
 		itemType[] =	{
 			{"","trash"},
+			{"MeleeHatchet","weapon"},
 			{"","foodt"},
 			{"","hospital"},
 			{"MedBox0","object"}
 		};
 		itemChance[] =	{
-			0.2,
+			1,
+			1,
 			1,
 			1,
 			0.2
@@ -780,9 +779,11 @@ class CfgBuildingLoot {
 			{"B_Kitbag_BaseDN","backpack"}, // 16
 			{"B_Bergen_BaseDN","backpack"}, // 16
 			{"B_Bergen_BaseDN","backpack"}, // 18
+			{"MeleeMachete","weapon"},
 			{"B_AssaultPack_blkDN","backpack"}, // 24
 			{"B_AssaultPack_blkDN","backpack"}, // 24
 			{"B_FieldPack_blkDN","backpack"},
+			{"ItemRadio","weapon"},
 			{"","medical"},
 			{"","generic"},
 			{"","military"},
@@ -809,7 +810,9 @@ class CfgBuildingLoot {
 			0.08,
 			0.05,
 			0.05,
+			0.05,
 			0.01,
+			0.02,
 			0.10,
 			0.01,
 			0.02,
@@ -859,6 +862,7 @@ class CfgBuildingLoot {
 			{"srifle_GM6_F","weapon"},
 			{"","accessprim"},
 			{"srifle_LRR_F","weapon"},
+			{"ItemRadio","weapon"},
 			{"SMG_01_F","weapon"},
 			{"srifle_EBR_F","weapon"},
 			{"SMG_02_F","weapon"},
@@ -880,10 +884,11 @@ class CfgBuildingLoot {
 			{"ItemKnife","magazine"},
 			{"ItemGPS","vest"},
 			{"ItemMap","vest"},
-			{"Binocular_Vector","weapon"},
+			{"Binocular","weapon"},
 			{"B_Kitbag_BaseDN","backpack"},
 			{"B_Bergen_BaseDN","backpack"}, // 18
 			{"B_AssaultPack_blkDN","backpack"}, // 24
+			{"MeleeMachete","weapon"},
 			{"B_AssaultPack_blkDN","backpack"}, // 24
 			{"B_FieldPack_blkDN","backpack"},		
     		{"","medical"},
@@ -891,6 +896,7 @@ class CfgBuildingLoot {
 			{"","military"},
 			{"","foodt"},
 			{"SMG_01_F","weapon"},
+			{"TrapBear","magazine"},
 			{"SMG_01_F","weapon"},
 			{"LMG_Zafir_F","weapon"},
 			{"","foodt"}
@@ -901,7 +907,9 @@ class CfgBuildingLoot {
 			0.01,
 			0.02,
 			0.10,
+			0.09,
 			0.02,
+			0.10,
 			0.10,
 			0.10,
 			0.10,
@@ -911,6 +919,7 @@ class CfgBuildingLoot {
 			0.01,
 			0.02,
 			0.10,
+			0.05,
 			0.03,
 			0.20,
 			0.10,
@@ -957,13 +966,16 @@ class CfgBuildingLoot {
 			{"","foodt"},
 			{"","trash"},
 			{"Remington870","weapon"},
+			{"MeleeMachete","weapon"},
 			{"Winchester1866","weapon"},
-			{"","policeman"},
+			{"TrapBear","magazine"},
 			{"","generic"},
 			{"","civilian"},
 			{"","trash"}
 		};
 		itemChance[] =	{
+			0.9,
+			0.9,
 			0.9,
 			0.9,
 			0.9,
@@ -1414,7 +1426,7 @@ class CfgBuildingLoot {
 		lootPos[] = {{-2.31958, 0.655151, -1.17000}, {-2.82349, 0.769653, -1.17000}, {-2.67871, 0.918701, -1.17000}, {-2.41958, 0.755151, -1.17000}, {-2.72349, 0.759653, -1.17000}, {-2.59871, 0.898701, -1.17000}};
 	};
 	
-	class Land_u_Addon_02_V1_F : Industrial {
+	class Land_u_Addon_02_V1_F : Residential {
 		lootChance = 0.4;
 		minRoaming = 2;
 		maxRoaming = 6;
@@ -1423,7 +1435,7 @@ class CfgBuildingLoot {
 		lootPos[] = {{-2.31958, 0.655151, 0.27000}, {-2.82349, 1.769653, 0.27000}, {-2.67871, 1.918701, 0.27000}};
 	};
 	
-	class Land_Shed_Big_F : Industrial {
+	class Land_Shed_Big_F : Residential {
 		lootChance = 0.4;
 		minRoaming = 2;
 		maxRoaming = 6;
@@ -1800,7 +1812,7 @@ class CfgBuildingLoot {
 		lootPos[] = {{1.31958, 0.655151, -0.93448}, {1.82349, 0.769653, -0.93458}, {0.67871, 0.918701, -0.93458}, {0.31958, 0.655151, -0.93448}, {0.82349, 0.769653, -0.93458}};
 	};
 	
-	class Land_i_Stone_HouseBig_V1_F : Industrial {
+	class Land_i_Stone_HouseBig_V1_F : Residential {
 		lootChance = 0.4;
 		minRoaming = 2;
 		maxRoaming = 6;
@@ -1808,7 +1820,7 @@ class CfgBuildingLoot {
 		zombieClass[] = {"zZombie_Base","z_villager3","z_villager2","z_villager1","z_policeman"};
 		lootPos[] = {{1.01958, -0.655151, 1.15448}, {-1.82349, -0.069653, 1.15458}, {-0.67871, -0.218701, 1.15458}, {-1.82349, 1.769653, -1.00458}};
 	};
-	class Land_i_Stone_HouseBig_V2_F : Industrial {
+	class Land_i_Stone_HouseBig_V2_F : Residential {
 		lootChance = 0.4;
 		minRoaming = 2;
 		maxRoaming = 6;
@@ -1816,7 +1828,7 @@ class CfgBuildingLoot {
 		zombieClass[] = {"zZombie_Base","z_villager3","z_villager2","z_villager1","z_policeman"};
 		lootPos[] = {{1.01958, -0.655151, 1.15448}, {-1.82349, -0.069653, 1.15458}, {-0.67871, -0.218701, 1.15458}, {-1.82349, 1.769653, -1.00458}};
 	};
-	class Land_i_Stone_HouseBig_V3_F : Industrial {
+	class Land_i_Stone_HouseBig_V3_F : Residential {
 		lootChance = 0.4;
 		minRoaming = 2;
 		maxRoaming = 6;

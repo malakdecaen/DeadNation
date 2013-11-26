@@ -64,7 +64,7 @@ class CfgMovesDogBase
 		leaningCorrectionAngleEnd = 0;
 		interpolationSpeed = 6;
 		interpolationRestart = 0;
-		collisionShape = "ca\animals2\data\geom\basicColide.p3d";
+		//collisionShape = "ca\animals2\data\geom\basicColide.p3d";
 		hasCollShapeSafe = 0;
 		collisionShapeSafe = "";
 		boundingSphere = 1;
@@ -222,7 +222,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		{
 			actions = "DogActions";
 			duty = -1;
-			file = "\CA\animals2\dogs\data\Anim\dogStop";
+			//file = "\CA\animals2\dogs\data\Anim\dogStop";
 			//variantsAI[] = {"Dog_Stop",1};
 			//variantAfter[] = {0,2,3};
 			speed = 1e+010;
@@ -235,20 +235,20 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_TurnL: Dog_Stop
 		{
-			file = "\CA\animals2\Dogs\data\anim\dog_rotateL.rtm";
+			//file = "\CA\animals2\Dogs\data\anim\dog_rotateL.rtm";
 			speed = 1;
 			ConnectTo[] = {"Dog_Stop",0.1};
 			InterpolateTo[] = {"Dog_Stop",0.1};
 		};
 		class Dog_TurnR: Dog_TurnL
 		{
-			file = "\CA\animals2\Dogs\data\anim\dog_rotateR.rtm";
+			//file = "\CA\animals2\Dogs\data\anim\dog_rotateR.rtm";
 			ConnectTo[] = {"Dog_Stop",0.1};
 			InterpolateTo[] = {"Dog_Stop",0.1};
 		};
 		class Dog_StopV1: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogIDLE";
+			//file = "\CA\animals2\dogs\data\Anim\dogIDLE";
 			speed = 2.14;
 			variantAfter[] = {5,7,10};
 			looped = 0;
@@ -257,7 +257,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_StopV2: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogBark";
+			//file = "\CA\animals2\dogs\data\Anim\dogBark";
 			speed = 1;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -266,7 +266,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_Attack: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogAttack";
+			//file = "\CA\animals2\dogs\data\Anim\dogAttack";
 			speed = 1;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -275,7 +275,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_Sniff: Dog_Stop
 		{
-			file = "\dayz_anim\dog\dogGestureSniff";
+			//file = "\dayz_anim\dog\dogGestureSniff";
 			speed = 0.3;
 			mask = "frontBody";	
 			variantAfter[] = {1,1,1};
@@ -286,7 +286,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_SitDown: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\CA\animals2\dogs\data\Anim\dogSit1In";
+			//file = "\CA\animals2\dogs\data\Anim\dogSit1In";
 			speed = 1.43;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -322,7 +322,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_Siting: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\CA\animals2\dogs\data\Anim\dogSit2Idle";
+			//file = "\CA\animals2\dogs\data\Anim\dogSit2Idle";
 			speed = 1.58;
 			variantAfter[] = {1,1,1};
 			looped = 1;
@@ -332,7 +332,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_SitUp: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\CA\animals2\dogs\data\Anim\dogSit3Out";
+			//file = "\CA\animals2\dogs\data\Anim\dogSit3Out";
 			speed = 1.08;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -344,7 +344,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_Sprint: Dog_Stop
 		{
 			actions = "DogSprint";
-			file = "\CA\animals2\dogs\data\Anim\dogSprint";
+			//file = "\CA\animals2\dogs\data\Anim\dogSprint";
 			duty = 0.5;
 			speed = 4.5;
 			ConnectTo[] = {"Dog_Stop",0.02,"Dog_Run",0.02,"Dog_Walk",0.02};
@@ -352,7 +352,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_Run: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogRun";
+			//file = "\CA\animals2\dogs\data\Anim\dogRun";
 			duty = -0.5;
 			speed = 1.8;
 			ConnectTo[] = {"Dog_Stop",0.02,"Dog_Sprint",0.02,"Dog_Walk",0.02};
@@ -362,7 +362,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_Walk: Dog_Stop
 		{
 			duty = -0.7;
-			file = "\CA\animals2\dogs\data\Anim\dogWalk";
+			//file = "\CA\animals2\dogs\data\Anim\dogWalk";
 			speed = 1.3;
 			variantAfter[] = {3,10,20};
 			ConnectTo[] = {"Dog_Stop",0.2,"Dog_Sprint",0.2,"Dog_Run",0.2};
@@ -373,7 +373,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		{
 			enableDirectControl = 0;
 			actions = "NoActions";
-			file = "\CA\animals2\dogs\data\Anim\dogDeath";
+			//file = "\CA\animals2\dogs\data\Anim\dogDeath";
 			speed = 1.2;
 			looped = 0;
 			variantsPlayer[] = {};

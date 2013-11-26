@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Zombie Combat Agent">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, deadnation Zombie Combat Agent">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,4346,-150.000000,-250.000000,-50.000000,-200.000000,0.000000,"init"};
@@ -132,7 +132,7 @@ window[] = {2,-1,-1,-32000,-32000,868,88,1296,88,3,856};
 *//*%FSM</HEAD>*/
 class FSM
 {
-  fsmName = "DayZ Zombie Combat Agent";
+  fsmName = "deadnation Zombie Combat Agent";
   class States
   {
     /*%FSM<STATE "init">*/

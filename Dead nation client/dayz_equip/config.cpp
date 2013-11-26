@@ -86,7 +86,7 @@ class RscButton {
 	y = 0;
 	w = 0.095589;
 	h = 0.039216;
-	font = "Zeppelin32";
+	font = "PuristaMedium";
 	sizeEx = 0.03921;
 	offsetX = 0.003;
 	offsetY = 0.003;
@@ -879,7 +879,7 @@ class CfgMagazines {
 		descriptionShort = "";
 	};
     
-	class ItemKnife : Utility {
+	class ItemKnife : CA_Magazine {
 		scope = public;              
         mass = 4;
 		displayName = $STR_EQUIP_NAME_4;
@@ -888,7 +888,16 @@ class CfgMagazines {
 		descriptionShort = $STR_EQUIP_DESC_4;
 	};
 	
-	class ItemToolbox : Utility {
+	class Itemshackprint : CA_Magazine {
+		scope = public;              
+        mass = 4;
+		displayName = $STR_EQUIP_NAME_4;
+		model = "";
+		picture = "\dayz_equip\textures\blueprint_co.paa";
+		descriptionShort = "shack build only for special tester";
+	};
+	
+	class ItemToolbox : CA_Magazine {
 		scope = public;
         mass = 10;
 		displayName = $STR_EQUIP_NAME_2;
@@ -897,7 +906,7 @@ class CfgMagazines {
 		descriptionShort = $STR_EQUIP_DESC_2;
 	};
 	
-	class ItemEtool : Utility {
+	class ItemEtool : CA_Magazine {
 		scope = public;
         mass = 10;
 		displayName = $STR_EQUIP_NAME_1;
@@ -906,7 +915,7 @@ class CfgMagazines {
 		descriptionShort = $STR_EQUIP_DESC_1;
 	};
 	
-	class ItemMatchbox : Utility {
+	class ItemMatchbox : CA_Magazine {
 		scope = public;
         mass = 1;
 		displayName = $STR_EQUIP_NAME_3;
@@ -1676,18 +1685,8 @@ class CfgVehicles {
 		model = "\dayz_equip\models\cardboard_box.p3d";
 		
 		class TransportWeapons {
-			class _xx_ItemMatchbox {
-				weapon = "ItemMatchbox";
-				count = 3;
-			};
-			
 			class _xx_ItemFlashlight {
 				weapon = "ItemFlashlight";
-				count = 3;
-			};
-			
-			class _xx_ItemKnife {
-				weapon = "ItemKnife";
 				count = 3;
 			};
 		};

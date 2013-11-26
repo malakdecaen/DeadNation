@@ -1,6 +1,8 @@
 
 class CfgWeapons {
 	class ItemCore;
+	class MeleeWeapon;
+	class WeaponSlotsInfo;
 	class ItemMap_Debug: ItemCore {
 		descriptionshort = "Debug Map - Admin use only";
 		displayname = "Map";
@@ -12,10 +14,6 @@ class CfgWeapons {
 		};
 	};
 	
-	class ItemCompass: ItemCore {
-		model="z\addons\dayz_communityassets\models\compass.p3d";
-	};
-	
 	class Crossbow;
 	class Crossbow_DZ : Crossbow {
 		magazines[] =
@@ -24,38 +22,7 @@ class CfgWeapons {
 			"WoodenArrow"
 		};
 	};
-	class MeleeWeapon;
-	class MeleeHatchet: MeleeWeapon
-	{
-		scope=2;
-		autoreload=1;
-		magazineReloadTime=0;
-		model="\dayz_weapons\models\Hatchet_weaponized";
-		picture="\dayz_equip\textures\equip_hatchet_CA.paa";
-		displayName="$STR_EQUIP_NAME_41";
-		magazines[]=
-		{
-			"Hatchet_Swing"
-		};
-		handAnim[]=
-		{
-			"OFP2_ManSkeleton",
-			"\dayz_weapons\anim\melee_hatchet_holding.rtm"
-		};
-	};	
-	class MeleeCrowbar: MeleeHatchet
-	{
-		scope=2;
-		autoreload=1;
-		magazineReloadTime=0;
-		model="\dayz_weapons\models\crowbar_weaponized";
-		picture="\dayz_weapons\textures\equip_crowbar_CA.paa";
-		displayName="Crowbar";
-		magazines[]=
-		{
-			"Crowbar_Swing"
-		};
-	};	
+	
 	class ItemCrowbar: ItemCore
 	{
 		scope=2;
@@ -64,20 +31,7 @@ class CfgWeapons {
 		picture="\dayz_weapons\textures\equip_crowbar_CA.paa";
 		descriptionShort="A tool consisting of a metal bar with a single curved end and flattened points, often with a small fissure on one or both ends for removing nails.";
 	};
-	class MeleeMachete: MeleeHatchet
-	{
-		scope=2;
-		autoreload=1;
-		magazineReloadTime=0;
-		model="\z\addons\dayz_communityassets\models\machete_weaponized.p3d";
-		picture="\z\addons\dayz_communityassets\pictures\equip_machete_CA.paa";
-		displayName="Machete";
-		magazines[]=
-		{
-			"Machete_Swing"
-		};
-
-	};	
+		
 	class ItemMachete: ItemCore
 	{
 		scope=2;
@@ -87,4 +41,126 @@ class CfgWeapons {
 		descriptionShort="An agricultural tool turned into a weapon, the Machete may be less versatile than the common hatchet, but it packs a punch.";
 
 	};
+	class MeleeHatchet : MeleeWeapon {
+		autoreload = 1;
+		scope = 2;
+		weaponReloadtime = 0.75;
+		model = "\dayz_weapons\models\Hatchet_weaponized.p3d";
+		picture = "\dayz_equip\textures\equip_hatchet_CA.paa";
+		displayName = "Hatchet";
+		descriptionUse = "Hatchet";
+		magazines[] = {"Hatchet_Swing"};
+		handAnim[] = {"OFP2_ManSkeleton", "\dayz_weapons\anim\melee_hatchet_holding.rtm"};
+		descriptionShort = $STR_EQUIP_DESC_41;
+		
+		class WeaponSlotsInfo : WeaponSlotsInfo {
+			mass = 45;
+		};
+	};
+	class MeleeMachete : MeleeHatchet {
+		autoreload = 1;
+		scope = 2;
+		weaponReloadtime = 0.75;
+		model="\z\addons\dayz_communityassets\models\machete_weaponized.p3d";
+		picture="\z\addons\dayz_communityassets\pictures\equip_machete_CA.paa";
+		displayName="Machete";
+		descriptionUse = "Machete";
+		magazines[] = {"Machete_Swing"};
+		handAnim[] = {"OFP2_ManSkeleton", "\dayz_weapons\anim\melee_hatchet_holding.rtm"};
+		descriptionShort = $STR_EQUIP_DESC_41;
+		
+	};
+	class MeleeCrowbar : MeleeHatchet {
+		scope = public;
+		model = "\dayz_weapons\models\crowbar_weaponized";
+		picture = "\dayz_weapons\textures\equip_crowbar_CA.paa";
+		displayName = "Crowbar";
+		magazines[] = {"Crowbar_Swing"};
+		
+		class ItemActions {
+			class Drop {
+				text = "Drop Crowbar";
+				script = "spawn player_dropWeapon;";
+				use[] = {"Crowbar_Swing"};
+			};
+		};
+		
+		class Library {
+			libTextDesc = "A tool consisting of a metal bar with a single curved end and flattened points, often with a small fissure on one or both ends for removing nails.";
+		};
+		descriptionShort = "A tool consisting of a metal bar with a single curved end and flattened points, often with a small fissure on one or both ends for removing nails.";
+	};
+	class GrenadeLauncher;  // External class reference
+	class Flare : GrenadeLauncher {
+		class ThrowMuzzle;
+		class MolotovCocktailMuzzle : ThrowMuzzle {
+			displayName = "$STR_ACTION_THROW";
+			magazines[] = {
+				"TrashJackDaniels", 
+				"ItemSodaEmpty", 
+				"TrashTinCan",
+				"FoodCanGriffEmpty",
+				"FoodCanBadguyEmpty",
+				"FoodCanBoneboyEmpty",
+				"FoodCanCornEmpty",
+				"FoodCanCurgonEmpty",
+				"FoodCanDemonEmpty",
+				"FoodCanFraggleosEmpty",
+				"FoodCanHerpyEmpty",
+				"FoodCanOrlokEmpty",
+				"FoodCanPowellEmpty",
+				"FoodCanTylersEmpty",
+				"FoodCanUnlabeledEmpty",
+				"ItemSodaCokeEmpty",
+				"ItemSodaPepsiEmpty",
+				"ItemSodaMdewEmpty",
+				"ItemSodaMtngreenEmpty",
+				"ItemSodaR4z0rEmpty",
+				"ItemSodaClaysEmpty",
+				"ItemSodaSmashtEmpty", 
+				"ItemSodaDrwasteEmpty", 
+				"ItemSodaLemonadeEmpty", 
+				"ItemSodaLvgEmpty", 
+				"ItemSodaMzlyEmpty", 
+				"ItemSodaRabbitEmpty"
+			};          
+		};
+	}; 
+	class Throw_DZ: GrenadeLauncher {
+        autoaimenabled = 0;
+        candrop = 0;
+        cursor = "EmptyCursor";
+        cursoraim = "throw";
+        displayname = "Throw";
+        muzzles[] = {"TearGasMuzzle"};
+        scope = 1;
+        texturetype = "semi";
+        type = 0;
+        value = 0;
+        class ThrowMuzzle: GrenadeLauncher {
+            aidispersioncoefx = 6;
+            aidispersioncoefy = 6;
+            autoreload = 1;
+            cursor = "EmptyCursor";
+            cursoraim = "throw";
+            enableattack = 0;
+            keepininventory = 1;
+            magazinereloadtime = 0;
+            maxrange = 60;
+            maxrangeprobab = 0.03;
+            midrange = 45;
+            midrangeprobab = 0.9;
+            minrange = 10;
+            minrangeprobab = 0.2;
+            modeloptics = "";
+            reloadsound[] = {"", 0.000316228, 1};
+            reloadtime = 0;
+            showempty = 0;
+            sound[] = {"", 0.000316228, 1};
+        };
+        class TearGasMuzzle: ThrowMuzzle {
+            displayname = "Smoke Grenade (Tear Gas)";
+            magazines[] = {"SmokeShellTear"};
+        };
+    };
 };
