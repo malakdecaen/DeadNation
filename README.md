@@ -1,5 +1,4 @@
-
-
+![DayZ Logo](http://stats-deadnation.id-cloud.com/images/logo_dead_nation.png)
 DeadNation
 ==========
 Created by The MalakdeCaen [FR]
